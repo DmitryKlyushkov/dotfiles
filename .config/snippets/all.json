@@ -1,0 +1,122 @@
+{
+  "div": {
+    "prefix": "div",
+    "body": ["<div>$1</div>"],
+    "description": "div"
+  },
+  "span": {
+    "prefix": "span",
+    "body": ["<span>$1</span>"],
+    "description": "span"
+  },
+  "a": {
+    "prefix": "a",
+    "body": ["<a href='#'>$1</a>"],
+    "description": "a"
+  },
+  "h1": {
+    "prefix": "h1",
+    "body": ["<h1>$1</h1>"],
+    "description": "h1"
+  },
+  "h2": {
+    "prefix": "h2",
+    "body": ["<h2>$1</h2>"],
+    "description": "h2"
+  },
+  "h3": {
+    "prefix": "h3",
+    "body": ["<h3>$1</h3>"],
+    "description": "h3"
+  },
+  "h4": {
+    "prefix": "h4",
+    "body": ["<h4>$1</h4>"],
+    "description": "h4"
+  },
+  "h5": {
+    "prefix": "h5",
+    "body": ["<h5>$1</h5>"],
+    "description": "h5"
+  },
+  "main": {
+    "prefix": "main",
+    "body": ["<main>$1</main>"],
+    "description": "main"
+  },
+  "ul": {
+    "prefix": "ul",
+    "body": ["<ul>$1</ul>"],
+    "description": "ul"
+  },
+  "ol": {
+    "prefix": "ol",
+    "body": ["<ol>$1</ol>"],
+    "description": "ol"
+  },
+  "li": {
+    "prefix": "li",
+    "body": ["<li>$1</li>"],
+    "description": "li"
+  },
+  "form": {
+    "prefix": "form",
+    "body": ["<fomr>$1</form>"],
+    "description": "form"
+  },
+  "input": {
+    "prefix": "input",
+    "body": ["<input type='text' $1/>"],
+    "description": "input"
+  },
+  "checkbox": {
+    "prefix": "checkbox",
+    "body": ["<input type='checkbox' $1/>"],
+    "description": "checkbox"
+  },
+  "img": {
+    "prefix": "img",
+    "body": ["<img scr='$1'/>"],
+    "description": "img"
+  },
+  "html": {
+    "prefix": "html",
+    "body": [
+      "<!DOCTYPE html>",
+      "<html>",
+      "  <head>",
+      "    <meta charset='utf-8'>",
+      "    <title>Untitled</title>",
+      "    <meta name='description' content='description'>",
+      "    <link rel='stylesheet' type='text/css' href='theme.css'>",
+      "  </head>",
+      "  <body>",
+      "  </body>",
+      "</html>"
+    ],
+    "description": "html"
+  },
+  "label": {
+    "prefix": "label",
+    "body": ["<label htmlFor=''>$1</label>"],
+    "description": "label"
+  },
+  "table": {
+    "prefix": "table",
+    "body": [
+      "<table>",
+      " <thead>",
+      "   <tr>",
+      "     <th></th>",
+      "   </tr>",
+      " </thead>",
+      " <tbody>",
+      "   <tr>",
+      "     <td></td>",
+      "   </tr>",
+      " </tbody>",
+      "</table>"
+    ],
+    "description": "table"
+  }
+}

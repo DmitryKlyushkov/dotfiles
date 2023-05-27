@@ -1,0 +1,45 @@
+{
+  "wp_nav_menu": {
+    "scope": "php",
+    "prefix": "wpmenu",
+    "body": [
+      "wp_nav_menu( [",
+      "  'theme_location'  => '',",
+      "  'menu'            => '',",
+      "  'container'       => 'div',",
+      "  'container_class' => '',",
+      "  'container_id'    => '',",
+      "  'menu_class'      => 'menu',",
+      "  'menu_id'         => '',",
+      "  'echo'            => true,",
+      "  'fallback_cb'     => 'wp_page_menu',",
+      "  'before'          => '',",
+      "  'after'           => '',",
+      "  'link_before'     => '',",
+      "  'link_after'      => '',",
+      "  'items_wrap'      => '<ul id= class= ></ul>',",
+      "  'depth'           => 0,",
+      "  'walker'          => '',",
+      "  ]);"
+    ],
+    "description": "wp_nav_menu"
+  },
+  "wp_post": {
+    "scope": "php",
+    "prefix": "wppost",
+    "body": [
+      "if ( have_posts() ) :",
+      "   while ( have_posts() ) : the_post();",
+      "     $1",
+      "   endwhile;",
+      "endif;"
+    ],
+    "description": "wp_post"
+  },
+  "wp_comment": {
+    "scope": "php",
+    "prefix": "wpcomment",
+    "body": ["if ( comments_open() ):", "   comments_template();", "endif;"],
+    "description": "wp_comment"
+  }
+}

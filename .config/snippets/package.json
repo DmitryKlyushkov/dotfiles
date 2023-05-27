@@ -1,0 +1,39 @@
+{
+  "name": "vim-snippents",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "all",
+        "path": "./all.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./js.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./js.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./js.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./js.json"
+      },
+      {
+        "language": "php",
+        "path": "./php.json"
+      },
+      {
+        "language": "css",
+        "path": "./css.json"
+      },
+      {
+        "language": "scss",
+        "path": "./css.json"
+      }
+    ]
+  }
+}
