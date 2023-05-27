@@ -1,0 +1,9 @@
+# Don't let ripgrep show long lines to terminal, show a preview.
+--max-columns=150
+--max-columns-preview
+
+# Local .gitignore
+--no-require-git
+
+# Ignore Case
+--smart-case
