@@ -131,16 +131,16 @@ bindsym --release Print exec scrot -u -s '%Y%m%d_%H%M%S.pang' -e 'mv $f ~/Pictur
 bindsym $mod+p --release exec scrot -s '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/Screenshots/'
 
 # picom
-#exec --no-startup-id picom --config  ~/.config/picom.conf
+exec --no-startup-id picom --config  ~/.config/picom.conf
 
-# volume controls
-bindsym XF86AudioRaiseVolume exec amixer -c 0 set Master 5+ && killall -SIGUSR1 i3status
-bindsym XF86AudioLowerVolume exec amixer -c 0 set Master 5- && killall -SIGUSR1 i3status
-bindsym XF86AudioMute exec amixer set Master toggle && killall -SIGUSR1 i3status
-bindsym XF86MonBrightnessUp exec light -k -A 10
-bindsym XF86MonBrightnessDown exec light -k -U 10
+# volume 
+exec kitty -e alsactl --file ~/.config/asound.state restore
+# bindsym XF86AudioRaiseVolume exec amixer -c 0 set Master 5+ && killall -SIGUSR1 i3status
+# bindsym XF86AudioLowerVolume exec amixer -c 0 set Master 5- && killall -SIGUSR1 i3status
+# bindsym XF86AudioMute exec amixer set Master toggle && killall -SIGUSR1 i3status
+# bindsym XF86MonBrightnessUp exec light -k -A 10
+# bindsym XF86MonBrightnessDown exec light -k -U 10
 
 exec --no-startup-id xrandr --output HDMI0 --auto --left-of eDP1
 exec --no-startup-id ~/.config/polybar/launch.sh 2>/home/nexow/.local/share/polybar.log &
 exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/mountains.jpg
-exec --no-startup-id xss-lock -- dm-tool switch-to-greeter
