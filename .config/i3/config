@@ -26,6 +26,8 @@ bindsym $mod+b exec firefox
 bindsym $mod+Shift+q kill
 # launch rofi
 bindsym $mod+d exec rofi -show drun
+# launch btop+
+bindsym $mod+F4 exec kitty -e btop
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
