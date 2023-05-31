@@ -53,6 +53,8 @@ map('n', '<leader>s', ':w<CR>')
 -- Close buffer/all buffers
 map('n', '<leader>qq', ':bd<CR>')
 map('n', '<leader>qa', ':w | %bd | e#<CR>')
+-- Delete forward char
+map('i', '<C-l>', '<Del>')
 -- Delete a line
 map('n', '<A-w>', ':d<CR>')
 map('i', '<A-w>', delete_line)
