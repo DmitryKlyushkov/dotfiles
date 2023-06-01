@@ -8,7 +8,7 @@ set -gx PATH ~/.local/bin $PATH
 set -g fish_greeting ""
 
 # Fish Aliases
-alias ll "ls -l"
+alias ll "ls -la"
 command -qv nvim && alias vim nvim
 
 # Custom Keybindings
