@@ -141,5 +141,5 @@ exec kitty -e alsactl --file ~/.config/asound.state restore
 
 # screen/wallpaper
 exec --no-startup-id xrandr --output HDMI0 --auto --left-of eDP1
-exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/city.jpg
+exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/dark.jpg
 
