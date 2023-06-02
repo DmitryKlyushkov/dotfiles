@@ -1,14 +1,10 @@
-confuguration {
-    display-drun: "Applications:";
-    display-window: "Windows:";
-    drun-display-format: "{icon} {name}";
+configuration {
+    drun-display-format: "{name}";
+    display-drun: "App name:";
     font: "Hack Nerd Font:style=Regular;size=12";
-    modi: "window,run,drun"; 
-    show-icons: true;
-    icon-theme: "Papirus";
 }
 
-@theme "solarized"
+@theme "squared-everforest"
 
 * {
     padding: 0;
@@ -16,3 +12,4 @@ confuguration {
     margin: 0;
     spacing: 0;
 }
+
