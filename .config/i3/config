@@ -136,7 +136,7 @@ bindsym $mod+p --release exec scrot -s '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/
 exec --no-startup-id ~/.config/polybar/launch.sh 2>/home/nexow/.local/share/polybar.log &
 
 # picom
-# exec --no-startup-id picom --config  ~/.config/picom.conf
+# exec --no-startup-id picom --config  ~/.config/picom/picom.conf
 
 # load alsa settings
 exec kitty -e alsactl --file ~/.config/asound.state restore
