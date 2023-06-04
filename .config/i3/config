@@ -28,6 +28,8 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec rofi -show drun
 # launch btop+
 bindsym $mod+F4 exec kitty -e btop
+# launch ranger
+bindsym $mod+i exec kitty -e ranger
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
