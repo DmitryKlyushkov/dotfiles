@@ -17,19 +17,18 @@ font pango: Nexa Regular:style=Regular 12
 set $mod Mod4
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-# start a terminal
-# bindsym $mod+Return exec alacritty -e tmux
-bindsym $mod+Return exec kitty
-# start a browser
-bindsym $mod+b exec firefox
 # kill focused window
 bindsym $mod+Shift+q kill
+# launch terminal:kitty
+bindsym $mod+Return exec kitty
+# launch browser:firefox
+bindsym $mod+z exec firefox
+# launch ranger
+bindsym $mod+x exec kitty -e ranger
+# launch btop+
+bindsym $mod+c exec kitty -e btop
 # launch rofi
 bindsym $mod+d exec rofi -show drun
-# launch btop+
-bindsym $mod+F4 exec kitty -e btop
-# launch ranger
-bindsym $mod+i exec kitty -e ranger
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -144,4 +143,5 @@ exec kitty -e alsactl --file ~/.config/asound.state restore
 # screen/wallpaper
 exec --no-startup-id xrandr --output HDMI0 --auto --left-of eDP1
 exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/dark.jpg
+
 
