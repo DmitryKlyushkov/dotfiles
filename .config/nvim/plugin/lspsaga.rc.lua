@@ -9,6 +9,9 @@ saga.setup({
       normal_bg = '#002b36'
     }
   },
+  lightbulb = {
+    enable = false,
+  },
   code_action = {
     keys = {
       quit = { 'q', '<ESC>' }
@@ -60,10 +63,10 @@ map('n', 'gl', '<Cmd>Lspsaga show_line_diagnostics<CR>')
 -- Code action
 map({ 'n', 'v' }, '<A-q>', '<Cmd>Lspsaga code_action<CR>')
 -- Hover Doc
-map('n', 'zz', '<Cmd>Lspsaga hover_doc<CR>', { remap = true, silent = true })
+map('n', 'zz', '<Cmd>Lspsaga hover_doc<CR>')
 -- Rename all
 map('n', '<C-d>', '<Cmd>Lspsaga rename<CR>')
 -- Find all
-map('n', '<C-f>', '<Cmd>Lspsaga lsp_finder<CR>', { remap = true, silent = true })
+map('n', '<C-f>', '<Cmd>Lspsaga lsp_finder<CR>')
 -- Toggle outline
-map("n", "<leader>q", "<cmd>Lspsaga outline<CR>")
+map("n", "<leader>`", "<cmd>Lspsaga outline<CR>")
