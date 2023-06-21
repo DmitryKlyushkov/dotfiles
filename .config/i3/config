@@ -23,6 +23,8 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Return exec kitty
 # launch browser:firefox
 bindsym $mod+z exec firefox
+# launch tor
+bindsym $mod+t exec tor-browser
 # launch ranger
 bindsym $mod+x exec kitty -e ranger
 # launch btop+
