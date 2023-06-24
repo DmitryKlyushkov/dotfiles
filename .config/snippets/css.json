@@ -296,6 +296,36 @@
     "body": ["margin: 0px 0px 0px 0px;"],
     "description": "margin 0 0 0 0"
   },
+  "margin 0 0": {
+    "scope": "css,scss",
+    "prefix": "m0",
+    "body": ["margin: 0px 0px;"],
+    "description": "margin 0 0"
+  },
+  "margin-top": {
+    "scope": "css,scss",
+    "prefix": "mt",
+    "body": ["margin-top: $1;"],
+    "description": "margin-top"
+  },
+  "margin-bottom": {
+    "scope": "css,scss",
+    "prefix": "mb",
+    "body": ["margin-bottom: $1;"],
+    "description": "margin-bottom"
+  },
+  "margin-right": {
+    "scope": "css,scss",
+    "prefix": "mr",
+    "body": ["margin-right: $1;"],
+    "description": "margin-right"
+  },
+  "margin-left": {
+    "scope": "css,scss",
+    "prefix": "ml",
+    "body": ["margin-left: $1;"],
+    "description": "margin-left"
+  },
   "padding 0 0 0 0": {
     "scope": "css,scss",
     "prefix": "p00",
@@ -308,11 +338,29 @@
     "body": ["padding: 0px 0px;"],
     "description": "padding 0 0"
   },
-  "margin 0 0": {
+  "padding-top": {
     "scope": "css,scss",
-    "prefix": "m0",
-    "body": ["margin: 0px 0px;"],
-    "description": "margin 0 0"
+    "prefix": "pt",
+    "body": ["padding-top: $1;"],
+    "description": "padding-top"
+  },
+  "padding-bottom": {
+    "scope": "css,scss",
+    "prefix": "pb",
+    "body": ["padding-bottom: $1;"],
+    "description": "padding-bottom"
+  },
+  "padding-right": {
+    "scope": "css,scss",
+    "prefix": "pr",
+    "body": ["padding-right: $1;"],
+    "description": "padding-right"
+  },
+  "padding-left": {
+    "scope": "css,scss",
+    "prefix": "pl",
+    "body": ["padding-left: $1;"],
+    "description": "padding-left"
   },
   "&:not()": {
     "scope": "css,scss",
