@@ -43,7 +43,7 @@ telescope.setup {
     media_files = {
       -- filetypes whitelist
       -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-      filetypes = { "png", "webp", "jpg", "jpeg", "svg" },
+      filetypes = { "png", "webp", "jpg", "jpeg", "svg", "gif", "pdf" },
       -- find command (defaults to `fd`)
       find_cmd = "rg"
     }
@@ -88,4 +88,3 @@ end)
 vim.keymap.set("n", "sm", function()
   telescope.extensions.media_files.media_files()
 end)
-
