@@ -74,14 +74,13 @@ map('n', 'ge', '100%')
 -- Beginning of line / end of line
 map('n', '<Leader>1', '0')
 map('n', '<Leader>2', '$')
--- Delete in Insert Mode
-map('i', '<A-z>', '<Delete>')
-map('i', '<A-x>', '<Backspace>')
 -- Copy + Paste a line/selected lines
 map('n', '<Leader>j', 'yyPj')
 map('v', '<Leader>j', 'ygP')
 -- Copy into + buffer (X11)
 map('v', '<C-c>', '"+y')
+-- Delete and Copy into + buffer (X11)
+map('v', '<C-x>', '"+d')
 
 -- Select all
 map('n', '<leader>a', 'gg<S-v>G')
@@ -110,3 +109,4 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 -- Add asterisks in block comments
 vim.opt.formatoptions:append { 'r' }
 vim.opt.formatoptions:append { 'r' }
+
