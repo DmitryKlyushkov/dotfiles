@@ -43,7 +43,7 @@ local function delete_line()
 end
 
 --- KeyMapping ---
--- Leader key
+-- Space is a Leader Key
 vim.g.mapleader = ' '
 -- Create a new line below
 map('n', '<C-CR>', 'o')
@@ -69,8 +69,6 @@ map('x', 'q"', 'xi""<Esc>P')
 -- Put Selected text in {} / []
 map('x', 'q{', 'xi{}<Esc>P')
 map('x', 'q[', 'xi[]<Esc>P')
--- End of file
-map('n', 'ge', '100%')
 -- Beginning of line / end of line
 map('n', '<Leader>1', '0')
 map('n', '<Leader>2', '$')
@@ -81,7 +79,6 @@ map('v', '<Leader>j', 'ygP')
 map('v', '<C-c>', '"+y')
 -- Delete and Copy into + buffer (X11)
 map('v', '<C-x>', '"+d')
-
 -- Select all
 map('n', '<leader>a', 'gg<S-v>G')
 -- Create a new tab
@@ -94,7 +91,7 @@ map('n', '<C-h>', '<C-w>h')
 map('n', '<C-j>', '<C-w>j')
 map('n', '<C-k>', '<C-w>k')
 map('n', '<C-l>', '<C-w>l')
--- Cancel Highlighting
+-- Remove highlighting
 map('n', '<leader><esc>', ':noh<return><esc>')
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
@@ -109,4 +106,3 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 -- Add asterisks in block comments
 vim.opt.formatoptions:append { 'r' }
 vim.opt.formatoptions:append { 'r' }
-
