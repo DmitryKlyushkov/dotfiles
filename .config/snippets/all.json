@@ -118,5 +118,180 @@
       "</table>"
     ],
     "description": "table"
+  },
+  "NextJS SSG": {
+    "prefix": "ssg",
+    "body": [
+      "import { GetStaticPropsContext, InferGetStaticPropsType } from 'next/types';",
+      "",
+      "export const getStaticProps = async (context: GetStaticPropsContext) => {",
+      "  return {",
+      "    props: {",
+      "      // Page props data",
+      "    },",
+      "    /* Revalidate static page every 30sec */",
+      "    revalidate: 30,",
+      "  };",
+      "};",
+      "",
+      "export async function getStaticPaths() {",
+      "  return {",
+      "    paths: [",
+      "      {",
+      "        params: {},",
+      "      },",
+      "    ],",
+      "    /* Generate an empty page when path is not found */",
+      "    fallback: false,",
+      "  };",
+      "}",
+      "",
+      "const Details = ({}: InferGetStaticPropsType<typeof getStaticProps>) => {",
+      "  return (",
+      "    <div>",
+      "      <h1>SSG</h1>",
+      "    </div>",
+      "  );",
+      "};",
+      "",
+      "export default Details;"
+    ],
+    "description": "NextJS SSG"
+  },
+  "NextJS SSR": {
+    "prefix": "ssr",
+    "body": [
+      "import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next/types';",
+      "",
+      "export const getServerSideProps = async (context: GetServerSidePropsContext) => {",
+      "  return {",
+      "    props: {",
+      "      // Page props data",
+      "    },",
+      "  };",
+      "};",
+      "",
+      "const Details = ({}: InferGetServerSidePropsType<typeof getServerSideProps>) => {",
+      "  return (",
+      "    <div>",
+      "      <h1>SSR</h1>",
+      "    </div>",
+      "  );",
+      "};",
+      "",
+      "export default Details;"
+    ],
+    "description": "NextJS SSR"
+  },
+  "NextJS CSR": {
+    "prefix": "csr",
+    "body": [
+      "import { useEffect, useState } from 'react';",
+      "",
+      "const Details = () => {",
+      "  const [state, setState] = useState<number>(0);",
+      "",
+      "  useEffect(() => {",
+      "    setState(1);",
+      "  }, []);",
+      "",
+      "  return (",
+      "      <div>",
+      "      <h1>CSR {state}</h1>",
+      "    </div>",
+      "  );",
+      "};",
+      "",
+      "export default Details;"
+    ],
+    "description": "NextJS CSR"
+  },
+  "React Component": {
+    "prefix": "component",
+    "body": [
+      "import styles from \"./${TM_FILENAME_BASE}.module.scss\";",
+      "",
+      "const ${TM_FILENAME_BASE} = () => {",
+      "",
+      "  return (",
+      "    <div>",
+      "      <h1>Hello world</h1>",
+      "    </div>",
+      "  );",
+      "};",
+      "",
+      "export default ${TM_FILENAME_BASE};"
+    ],
+    "description": "React Component"
+  },
+  "NextJS Page": {
+    "prefix": "page",
+    "body": [
+      "import type { NextPage } from \"next\";",
+      "import Head from \"next/head\";",
+      "",
+      "const ${TM_FILENAME_BASE/(.*)$/${1:/capitalize}/}: NextPage = () => {",
+      " return (",
+      "   <>",
+      "     <Head>",
+      "       <title>Page title</title>",
+      "       <meta name=\"description\" content=\"\" />",
+      "     </Head>",
+      "   </>",
+      " );",
+      "};",
+      "",
+      "export default ${TM_FILENAME_BASE/(.*)$/${1:/capitalize}/};"
+    ],
+    "description": "NextJS Page"
+  },
+  "React Module Styles": {
+    "prefix": "styles",
+    "body": ["import styles from '${TM_FILENAME_BASE}.module.scss'"],
+    "description": "React Module Styles"
+  },
+  "console log": {
+    "prefix": "log",
+    "body": ["console.log($1);"],
+    "description": "console.log"
+  },
+  "for": {
+    "prefix": "for",
+    "body": ["for (let i=0; i<$1; i++) {}"],
+    "description": "for"
+  },
+  "javascript_tips": {
+    "prefix": "coords",
+    "body": [
+      "/*",
+      "const coords = item.getBoundingClientRect() // Координаты/высота/ширина элемента",
+      "coords.top       // Расстояние от верхнего края окна браузера до верхнего края элемента",
+      "coords.bottom    // Расстояние от верхнего края окна браузера до нижнего края элемента",
+      "coords.left      // Расстояние от левого края окна браузера до левого края элемента",
+      "coords.right     // Расстояние от левого края окна браузера до правого края элемента",
+      "coords.width     // Ширина элемента с border/scroll",
+      "coords.height    // Высота элемента с border/scroll",
+      "",
+      "item.offsetWidth     // Ширина элемента с border/scroll",
+      "item.offsetHeight    // Высота элемента с border/scroll",
+      "item.clientWidth     // Ширина элемента без border/scroll",
+      "item.clientHeight    // Высота элемента без  border/scroll",
+      "",
+      "window.scrollY / window.pageYOffset // Высота прокрученного контента",
+      "window.scrollX / window.pageXOffset // Ширина прокрученного контента",
+      "",
+      "document.body.clientHeight   // Полная высота страницы",
+      "document.body.clientWidth    // Полная ширина страницы(в зависимости от ширины окна браузера)",
+      "",
+      "// Анимация прокрутки окна, behavior = smooth/instant",
+      "window.scrollTo({",
+      "  top: 1000,",
+      "  left: 0,",
+      "  behavior: 'smooth',",
+      "})",
+      " */"
+    ],
+    "description": "javascript_tips"
   }
 }
+

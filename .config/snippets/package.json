@@ -7,22 +7,6 @@
         "path": "./all.json"
       },
       {
-        "language": "typescript",
-        "path": "./js.json"
-      },
-      {
-        "language": "typescriptreact",
-        "path": "./js.json"
-      },
-      {
-        "language": "javascript",
-        "path": "./js.json"
-      },
-      {
-        "language": "javascriptreact",
-        "path": "./js.json"
-      },
-      {
         "language": "php",
         "path": "./php.json"
       },
