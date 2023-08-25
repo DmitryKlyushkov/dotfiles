@@ -20,5 +20,5 @@ function fish_user_key_bindings
   bind \ck up-or-search 
   bind \cj down-or-search 
   # Delete a line
-  bind \ce backward-kill-line
+  bind \ew backward-kill-line
 end

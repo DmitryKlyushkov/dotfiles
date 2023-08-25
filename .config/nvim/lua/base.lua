@@ -1,54 +1,60 @@
 vim.cmd("autocmd!")
 
+-- File encodings
 vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
 
-vim.wo.number = true
+vim.wo.number = true -- Line numbering in the current window
 
 -- Options
-vim.opt.title = true
-vim.opt.autoindent = true
-vim.opt.smartindent = true
-vim.opt.hlsearch = true
-vim.opt.backup = false
-vim.opt.showcmd = true
-vim.opt.cmdheight = 1
-vim.opt.laststatus = 2
-vim.opt.expandtab = true
-vim.opt.scrolloff = 10
-vim.opt.shell = 'powershell.exe'
-vim.opt.backupskip = { '/tmp/*', '/private/tmp/*' }
-vim.opt.inccommand = 'split'
-vim.opt.ignorecase = true -- Case insensitive searching UNLESS /C or capital in search
-vim.opt.smarttab = true
-vim.opt.breakindent = true
-vim.opt.shiftwidth = 2
-vim.opt.tabstop = 2
-vim.opt.wrap = true          -- No Wrap lines
-vim.opt.backspace = { 'start', 'eol', 'indent' }
-vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
-vim.opt.wildignore:append { '*/node_modules/*' }
+vim.opt.title = true                                -- Window title
+vim.opt.autoindent = true                           -- Automatic indentation
+vim.opt.smartindent = true                          -- Auto-indentation
+vim.opt.hlsearch = true                             -- Highlighting of search results
+vim.opt.backup = false                              -- Creation of backup files when writing a file
+vim.opt.showcmd = true                              -- Display of the command in the last line of the screen
+vim.opt.cmdheight = 1                               -- Height of the command line
+vim.opt.laststatus = 2                              -- Status line (0 - not visible, 1 - visible when two windows, 2 - always visible)
+vim.opt.shiftwidth = 2                              -- Each level of indentation will consist of two spaces
+vim.opt.tabstop = 2                                 -- Tab = 2 spaces
+vim.opt.expandtab = true                            -- Spaces insted of tab characters
+vim.opt.smarttab = true                             -- Tab inserts vim.opt.shiftwidth amount of spaces
+vim.opt.scrolloff = 10                              -- Minimum number of lines to keep visible above and below the cursor when scrolling
+vim.opt.shell = '/usr/bin/fish'                     -- Default shell
+vim.opt.backupskip = { '/tmp/*', '/private/tmp/*' } -- Files that should be skipped when creating backup files
+vim.opt.inccommand = 'split'                        -- Incremental highlighting during substitution commands
+vim.opt.ignorecase = true                           -- Case insensitive searching UNLESS /C or capital in search
+vim.opt.breakindent = true                          -- Auto-adjust the indentation of wrapped lines for better visual distinction
+vim.opt.wrap = true                                 -- No Wrap lines
+vim.opt.backspace = { 'start', 'eol', 'indent' }    -- Allows Backspace key to delete characters at the start & end of the line & within the indentation)
+vim.opt.path:append { '**' }                        -- Finding files - Search down into subfolders
+vim.opt.wildignore:append { '*/node_modules/*' }    -- Folders/Files ignored by file navigation commands like :edit and :find
 
--- Helpers
+-- Add asterisks in block comments
+vim.opt.formatoptions:append { 'r' }
+vim.opt.formatoptions:append { 'r' }
+
+-- Helpers --
+-- Key-mapping function
 local function map(mode, lhs, rhs, opts)
   local options = { noremap = true, silent = true }
   if opts then options = vim.tbl_extend('force', options, opts) end
   vim.keymap.set(mode, lhs, rhs, options)
 end
-
+-- Delete a whole line of text function
 local function delete_line()
   vim.api.nvim_set_current_line('')
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Esc>', true, true, true), 'n', true)
 end
 
---- KeyMapping ---
--- Space is a Leader Key
+-- KeyMappings --
+-- Leader key
 vim.g.mapleader = ' '
 -- Create a new line below
 map('n', '<C-CR>', 'o')
 map('i', '<C-CR>', '<esc>o')
--- Save
+-- Save current file
 map('n', '<leader>s', ':w<CR>')
 -- Close buffer/all buffers
 map('n', '<leader>qq', ':bd<CR>')
@@ -91,8 +97,9 @@ map('n', '<C-h>', '<C-w>h')
 map('n', '<C-j>', '<C-w>j')
 map('n', '<C-k>', '<C-w>k')
 map('n', '<C-l>', '<C-w>l')
--- Remove highlighting
+-- Cancel Highlighting
 map('n', '<leader><esc>', ':noh<return><esc>')
+
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
@@ -103,6 +110,3 @@ vim.api.nvim_create_autocmd("InsertLeave", {
   command = "set nopaste"
 })
 
--- Add asterisks in block comments
-vim.opt.formatoptions:append { 'r' }
-vim.opt.formatoptions:append { 'r' }
