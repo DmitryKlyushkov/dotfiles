@@ -19,26 +19,19 @@ saga.setup({
   },
   definition = {
     quit = { 'q', '<ESC>' },
-    edit = "<CR>",
     vsplit = "sv",
     split = "ss",
-    tabe = "t",
   },
   rename = {
     quit = '<ESC>'
   },
   finder = {
     keys = {
-      expand_or_jump = 'l',
+      toggle_or_open = 'l',
       vsplit = 'sv',
       split = 'ss',
     }
-  },
-  outline = {
-    keys = {
-      expand_or_jump = 'l',
-    }
-  },
+  }
 })
 
 -- Helpers
@@ -67,6 +60,7 @@ map('n', 'zz', '<Cmd>Lspsaga hover_doc<CR>')
 -- Rename all
 map('n', '<C-d>', '<Cmd>Lspsaga rename<CR>')
 -- Find all
-map('n', '<C-f>', '<Cmd>Lspsaga lsp_finder<CR>')
+map('n', '<C-f>', '<Cmd>Lspsaga finder<CR>')
 -- Toggle outline
 map("n", "<leader>`", "<cmd>Lspsaga outline<CR>")
+
