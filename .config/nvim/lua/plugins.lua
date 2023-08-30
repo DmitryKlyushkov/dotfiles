@@ -37,7 +37,7 @@ packer.startup(function(use)
   use "neovim/nvim-lspconfig"           -- Quickstart Configs For Nvim LSP
   use "jose-elias-alvarez/null-ls.nvim" -- LSP Diagnostics, Code Actions, Hover, Formatting, Linting
   use {
-    "glepnir/lspsaga.nvim",             -- UI For LSP Diagnoctics, Code Actions, Hover, etc
+    "nvimdev/lspsaga.nvim",             -- UI For LSP Diagnoctics, Code Actions, Hover, etc
     requires = {
       "nvim-tree/nvim-web-devicons"     -- lspsaga Icons
     }
