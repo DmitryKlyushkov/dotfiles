@@ -15,7 +15,12 @@ telescope.setup {
       n = {
         ["<esc>"] = actions.close,
         ["l"] = actions.select_default,
-        ["<c-d>"] = actions.delete_buffer + actions.move_to_top
+        ["<c-d>"] = actions.delete_buffer + actions.move_to_top,
+        ["t"] = actions.file_tab,
+        ["sv"] = actions.file_vsplit,
+        ["ss"] = actions.file_split,
+        ["<C-k>"] = actions.preview_scrolling_up,
+        ["<C-j>"] = actions.preview_scrolling_down,
       },
       i = {
         ["<c-d>"] = actions.delete_buffer + actions.move_to_top
@@ -26,7 +31,8 @@ telescope.setup {
     file_browser = {
       hidden = true,
       theme = "dropdown",
-      hijack_netrw = true, -- disables netrw and use telescope-file-browser in its place
+      -- disables netrw and use telescope-file-browser in its place
+      hijack_netrw = true,
       initial_mode = "normal",
       mappings = {
         -- your custom insert mode mappings
@@ -36,8 +42,6 @@ telescope.setup {
         ["n"] = {
           -- your custom normal mode mappings
           ["h"] = fb_actions.goto_parent_dir,
-          ["<C-k>"] = actions.preview_scrolling_up,
-          ["<C-j>"] = actions.preview_scrolling_down,
         },
       },
     },
@@ -57,7 +61,7 @@ telescope.load_extension("media_files")
 vim.keymap.set('n', ';f',
   function()
     builtin.find_files({
-      hidden = true
+      hidden = true,
     })
   end)
 vim.keymap.set('n', ';r', function()
@@ -89,3 +93,4 @@ end)
 vim.keymap.set("n", "sm", function()
   telescope.extensions.media_files.media_files()
 end)
+
