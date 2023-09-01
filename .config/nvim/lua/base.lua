@@ -112,9 +112,10 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 -- Kill eslint_d & prettierd processes on neovim leave
 vim.api.nvim_create_autocmd("VimLeave", {
   pattern = "*",
-  command = "!killall -9 eslint_d",
+  command = "!pkill -f eslint_d",
 })
 vim.api.nvim_create_autocmd("VimLeave", {
   pattern = "*",
-  command = "!killall -9 prettierd",
+  command = "!pkill -f prettierd",
 })
+
