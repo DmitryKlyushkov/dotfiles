@@ -58,27 +58,7 @@ telescope.setup {
 telescope.load_extension("file_browser")
 telescope.load_extension("media_files")
 
-vim.keymap.set('n', ';f',
-  function()
-    builtin.find_files({
-      hidden = true,
-    })
-  end)
-vim.keymap.set('n', ';r', function()
-  builtin.live_grep()
-end)
-vim.keymap.set('n', '\\\\', function()
-  builtin.buffers()
-end)
-vim.keymap.set('n', ';t', function()
-  builtin.help_tags()
-end)
-vim.keymap.set('n', ';;', function()
-  builtin.resume()
-end)
-vim.keymap.set('n', ';e', function()
-  builtin.diagnostics()
-end)
+-- File Browser
 vim.keymap.set("n", "sf", function()
   telescope.extensions.file_browser.file_browser({
     path = "%:p:h",
@@ -90,6 +70,32 @@ vim.keymap.set("n", "sf", function()
     initial_mode = "normal",
   })
 end)
+-- Find Files
+vim.keymap.set('n', ';f',
+  function()
+    builtin.find_files({
+      hidden = true,
+    })
+  end)
+-- Live Grep
+vim.keymap.set('n', ';r', function()
+  builtin.live_grep()
+end)
+-- Help Tags
+vim.keymap.set('n', ';t', function()
+  builtin.help_tags()
+end)
+-- Errors
+vim.keymap.set('n', ';e', function()
+  builtin.diagnostics()
+end)
+-- Open Buffers
+vim.keymap.set('n', ';;', function()
+  builtin.buffers({
+    initial_mode = "normal"
+  })
+end)
+-- Media Files
 vim.keymap.set("n", "sm", function()
   telescope.extensions.media_files.media_files()
 end)
