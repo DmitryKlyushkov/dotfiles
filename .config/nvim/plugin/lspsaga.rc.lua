@@ -18,12 +18,16 @@ saga.setup({
     }
   },
   definition = {
-    quit = { 'q', '<ESC>' },
-    vsplit = "sv",
-    split = "ss",
+    keys = {
+      quit = { 'q', '<ESC>' },
+      vsplit = "sv",
+      split = "ss",
+    }
   },
   rename = {
-    quit = '<ESC>'
+    keys = {
+      quit = '<ESC>'
+    }
   },
   finder = {
     keys = {
@@ -63,3 +67,4 @@ map('n', '<C-d>', '<Cmd>Lspsaga rename<CR>')
 map('n', '<C-f>', '<Cmd>Lspsaga finder<CR>')
 -- Toggle outline
 map("n", "<leader>`", "<cmd>Lspsaga outline<CR>")
+
