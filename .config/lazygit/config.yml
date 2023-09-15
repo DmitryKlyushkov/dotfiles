@@ -1,0 +1,10 @@
+gui:
+  scrollPastBottom: false
+  showBottomLine: false
+  showCommandLog: false
+  theme:
+    selectedLineBgColor:
+      - reverse
+    selectedRangeBgColor:
+      - reverse
+
