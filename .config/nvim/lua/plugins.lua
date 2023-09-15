@@ -35,7 +35,7 @@ packer.startup(function(use)
   use "nvim-lua/plenary.nvim"           -- Common Utilities
   use "nvim-lua/popup.nvim"             -- Implementation Of Popup API
   use "neovim/nvim-lspconfig"           -- Quickstart Configs For Nvim LSP
-  use "jose-elias-alvarez/null-ls.nvim" -- LSP Diagnostics, Code Actions, Hover, Formatting, Linting
+  use "jose-elias-alvarez/null-ls.nvim" -- Bridge To Support LSP Diagnostics, Code Actions, Hover, Formatting, Linting
   use {
     "nvimdev/lspsaga.nvim",             -- UI For LSP Diagnoctics, Code Actions, Hover, etc
     requires = {
@@ -43,7 +43,7 @@ packer.startup(function(use)
     }
   }
   use {
-    "nvim-treesitter/nvim-treesitter", -- Interface For A Tree-Sitter
+    "nvim-treesitter/nvim-treesitter", -- Interface For A Tree-Sitter (Language Parsing Tool)
     run = function() require("nvim-treesitter.install").update({ with_sync = true }) end,
   }
   use "nvim-telescope/telescope.nvim"               -- Fuzzy Finder Over Lists
@@ -67,3 +67,4 @@ packer.startup(function(use)
   use "mg979/vim-visual-multi"      -- Multi cursor
   -- use "github/copilot.vim"       -- GitHub Copilot
 end)
+
