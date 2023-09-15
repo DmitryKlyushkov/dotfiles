@@ -26,14 +26,24 @@ saga.setup({
   },
   rename = {
     keys = {
-      quit = '<ESC>'
+      quit = { 'q', '<ESC>' }
     }
   },
   finder = {
     keys = {
+      quit = { 'q', '<ESC>' },
       toggle_or_open = 'l',
       vsplit = 'sv',
       split = 'ss',
+      tabnew = 't'
+    }
+  },
+  outline = {
+    close_after_jump = true,
+    keys = {
+      quit = { 'q', '<ESC>' },
+      toggle_or_jump = 'h',
+      jump = 'l'
     }
   }
 })
@@ -49,14 +59,14 @@ local diagnostic = require("lspsaga.diagnostic")
 -- Diagnostic jump
 map('n', '<Leader>3', '<Cmd>Lspsaga diagnostic_jump_next<CR>')
 map('n', '<Leader>4', '<Cmd>Lspsaga diagnostic_jump_prev<CR>')
+-- Show line diagnostics
+map('n', 'gl', '<Cmd>Lspsaga show_line_diagnostics<CR>')
 -- Peek type definition / Go to type definition
 map('n', 'pt', '<Cmd>Lspsaga peek_type_definition<CR>')
 map('n', 'gt', '<Cmd>Lspsaga goto_type_definition<CR>')
 -- Peek definition / Go to definition
 map('n', 'pd', '<Cmd>Lspsaga peek_definition<CR>')
 map('n', 'gd', '<Cmd>Lspsaga goto_definition<CR>')
--- Show line diagnostics
-map('n', 'gl', '<Cmd>Lspsaga show_line_diagnostics<CR>')
 -- Code action
 map({ 'n', 'v' }, '<A-q>', '<Cmd>Lspsaga code_action<CR>')
 -- Hover Doc
