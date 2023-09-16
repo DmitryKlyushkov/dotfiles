@@ -19,9 +19,9 @@ set $mod Mod4
 floating_modifier $mod
 # kill focused window
 bindsym $mod+Shift+q kill
-# launch terminal:kitty
+# launch kitty terminal
 bindsym $mod+Return exec kitty
-# launch browser:firefox
+# launch firefox browser
 bindsym $mod+z exec firefox
 # launch tor
 bindsym $mod+t exec tor-browser
@@ -129,8 +129,9 @@ bindsym $mod+Escape gaps inner all set 30
 for_window [class="^.*"] border pixel 0
 
 # screenshots
-bindsym --release Print exec scrot -u -s '%Y%m%d_%H%M%S.pang' -e 'mv $f ~/Pictures/Screenshots/'
-# take selected screenshot
+# full screen screenshot
+bindsym Print --release exec scrot -e 'mv $f ~/Pictures/Screenshots/'
+# selected partial screenshot
 bindsym $mod+p --release exec scrot -s '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/Screenshots/'
 
 # polybar
