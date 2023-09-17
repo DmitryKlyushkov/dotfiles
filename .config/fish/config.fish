@@ -10,6 +10,7 @@ set -g fish_greeting ""
 
 # Fish Aliases
 alias ll "ls -la"
+alias cc "clear"
 command -qv nvim && alias vim nvim
 
 # Custom Keybindings
