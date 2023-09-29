@@ -9,7 +9,7 @@ set -gx RIPGREP_CONFIG_PATH ~/.config/.ripgreprc
 set -g fish_greeting ""
 
 # Fish Aliases
-alias ll "ls -la"
+alias ll "eza -lgaaBb"
 alias cc "clear"
 command -qv nvim && alias vim nvim
 
