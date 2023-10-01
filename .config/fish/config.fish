@@ -11,6 +11,7 @@ set -g fish_greeting ""
 # Fish Aliases
 alias ll "eza -lgaaBb"
 alias cc "clear"
+alias bb "cd .."
 command -qv nvim && alias vim nvim
 
 # Custom Keybindings
