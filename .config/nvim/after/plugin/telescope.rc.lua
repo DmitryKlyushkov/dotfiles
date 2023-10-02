@@ -14,6 +14,7 @@ telescope.setup {
     mappings = {
       n = {
         ["<esc>"] = actions.close,
+        ["q"] = actions.close,
         ["l"] = actions.select_default,
         ["<c-d>"] = actions.delete_buffer + actions.move_to_top,
         ["t"] = actions.file_tab,
@@ -99,4 +100,3 @@ end)
 vim.keymap.set("n", "sm", function()
   telescope.extensions.media_files.media_files()
 end)
-
