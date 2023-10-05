@@ -99,6 +99,9 @@ map('n', '<C-k>', '<C-w>k')
 map('n', '<C-l>', '<C-w>l')
 -- Cancel Highlighting
 map('n', '<leader><esc>', ':noh<return><esc>')
+-- Center cursor after moving up/down half-page
+map("n", "<C-e>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
