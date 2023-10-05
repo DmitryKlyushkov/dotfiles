@@ -72,9 +72,8 @@ map({ 'n', 'v' }, '<A-q>', '<Cmd>Lspsaga code_action<CR>')
 -- Hover Doc
 map('n', 'zz', '<Cmd>Lspsaga hover_doc<CR>')
 -- Rename all
-map('n', '<C-d>', '<Cmd>Lspsaga rename<CR>')
+map('n', '<C-e>', '<Cmd>Lspsaga rename<CR>')
 -- Find all
 map('n', '<C-f>', '<Cmd>Lspsaga finder<CR>')
 -- Toggle outline
 map("n", "<leader>`", "<cmd>Lspsaga outline<CR>")
-
