@@ -55,7 +55,6 @@ local function map(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, options)
 end
 
-local diagnostic = require("lspsaga.diagnostic")
 -- Diagnostic jump
 map('n', '<Leader>3', '<Cmd>Lspsaga diagnostic_jump_next<CR>')
 map('n', '<Leader>4', '<Cmd>Lspsaga diagnostic_jump_prev<CR>')
