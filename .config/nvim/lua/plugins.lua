@@ -31,15 +31,15 @@ packer.startup(function(use)
       },
     },
   }
-  use "nvim-lualine/lualine.nvim"       -- Statusline
-  use "nvim-lua/plenary.nvim"           -- Common Utilities
-  use "nvim-lua/popup.nvim"             -- Implementation Of Popup API
-  use "neovim/nvim-lspconfig"           -- Quickstart Configs For Nvim LSP
-  use "jose-elias-alvarez/null-ls.nvim" -- Bridge To Support LSP Diagnostics, Code Actions, Hover, Formatting, Linting
+  use "nvim-lualine/lualine.nvim"   -- Statusline
+  use "nvim-lua/plenary.nvim"       -- Common Utilities
+  use "nvim-lua/popup.nvim"         -- Implementation Of Popup API
+  use "neovim/nvim-lspconfig"       -- Quickstart Configs For Nvim LSP
+  use "nvimtools/none-ls.nvim"      -- Bridge To Support LSP Diagnostics, Code Actions, Hover, Formatting, Linting
   use {
-    "nvimdev/lspsaga.nvim",             -- UI For LSP Diagnoctics, Code Actions, Hover, etc
+    "nvimdev/lspsaga.nvim",         -- UI For LSP Diagnoctics, Code Actions, Hover, etc
     requires = {
-      "nvim-tree/nvim-web-devicons"     -- lspsaga Icons
+      "nvim-tree/nvim-web-devicons" -- lspsaga Icons
     }
   }
   use {
