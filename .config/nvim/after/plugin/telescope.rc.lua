@@ -97,7 +97,7 @@ vim.keymap.set('n', ';;', function()
   })
 end)
 -- Media Files
-vim.keymap.set("n", "sm", function()
+vim.keymap.set("n", ";m", function()
   telescope.extensions.media_files.media_files({
     initial_mode = "normal"
   })
