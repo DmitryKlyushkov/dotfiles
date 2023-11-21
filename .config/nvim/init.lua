@@ -1,3 +1,5 @@
-require('.base')
-require('.highlights')
+require('base')
+require('highlights')
 require('plugins')
+require('keymaps')
+require('autocmd')
