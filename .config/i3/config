@@ -21,12 +21,14 @@ floating_modifier $mod
 bindsym $mod+Shift+q kill
 # launch kitty terminal
 bindsym $mod+Return exec kitty
+# launch chromium
+bindsym $mod+z exec chromium
 # launch firefox browser
 # bindsym $mod+z exec firefox
 # launch google chrome browser
-bindsym $mod+z exec google-chrome-stable
-# launch tor
-bindsym $mod+t exec tor-browser
+# bindsym $mod+z exec google-chrome-stable
+# launch tor browser
+# bindsym $mod+t exec tor-browser
 # launch ranger
 bindsym $mod+x exec kitty -e ranger
 # launch btop+
