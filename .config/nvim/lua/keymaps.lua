@@ -62,4 +62,5 @@ map('n', '<C-l>', '<C-w>l')
 map('n', '<leader><esc>', ':noh<return><esc>')
 -- (vim-visual-multi) Add cursor
 map('n', '<C-1>', '<Plug>(VM-Add-Cursor-At-Pos)')
-
+-- Join below line and delete a space char
+map("n", "J", "Jx")
