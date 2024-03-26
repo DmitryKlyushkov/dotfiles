@@ -13,6 +13,7 @@ local lsp_formatting = function(bufnr)
 end
 
 null_ls.setup {
+  -- debug = true,
   sources = {
     null_ls.builtins.formatting.prettierd,
     require("none-ls.diagnostics.eslint_d"),
