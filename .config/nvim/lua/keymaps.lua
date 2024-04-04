@@ -25,14 +25,17 @@ map('i', '<C-l>', '<Del>')
 -- Delete a line
 map('n', '<A-w>', ':d<CR>')
 map('i', '<A-w>', delete_line)
--- Quote/unquote ''/"" a word
+-- Quote/unquote ''/""/`` a word
 map('n', "q'", "ciw''<Esc>P")
 map('n', 'q"', 'ciw""<Esc>P')
+map('n', 'q`', 'ciw``<Esc>P')
 map('n', "d'", "di'hPl2x")
 map('n', 'd"', 'di"hPl2x')
--- Put Selected text in quotes ''/""
+map('n', 'd`', 'di`hPl2x')
+-- Put Selected text in quotes ''/""/``
 map('x', "q'", "xi''<Esc>P")
 map('x', 'q"', 'xi""<Esc>P')
+map('x', 'q`', 'xi``<Esc>P')
 -- Put Selected text in {} / [] / ()
 map('x', 'q{', 'xi{}<Esc>P')
 map('x', 'q[', 'xi[]<Esc>P')
