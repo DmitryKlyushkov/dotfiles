@@ -33,9 +33,10 @@ map('n', 'd"', 'di"hPl2x')
 -- Put Selected text in quotes ''/""
 map('x', "q'", "xi''<Esc>P")
 map('x', 'q"', 'xi""<Esc>P')
--- Put Selected text in {} / []
+-- Put Selected text in {} / [] / ()
 map('x', 'q{', 'xi{}<Esc>P')
 map('x', 'q[', 'xi[]<Esc>P')
+map('x', 'q(', 'xi()<Esc>P')
 -- Beginning of line / end of line
 map('n', '<Leader>1', '0')
 map('n', '<Leader>2', '$')
