@@ -22,6 +22,7 @@ saga.setup({
       quit = { 'q', '<ESC>' },
       vsplit = "sv",
       split = "ss",
+      tabnew = 't',
     }
   },
   rename = {
