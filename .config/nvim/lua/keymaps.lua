@@ -25,21 +25,27 @@ map('i', '<C-l>', '<Del>')
 -- Delete a line
 map('n', '<A-w>', ':d<CR>')
 map('i', '<A-w>', delete_line)
--- Quote/unquote ''/""/`` a word
+-- Put a word in quotes/parentheses/brackets
 map('n', "q'", "ciw''<Esc>P")
 map('n', 'q"', 'ciw""<Esc>P')
 map('n', 'q`', 'ciw``<Esc>P')
-map('n', "d'", "di'hPl2x")
-map('n', 'd"', 'di"hPl2x')
-map('n', 'd`', 'di`hPl2x')
--- Put Selected text in quotes ''/""/``
+map('n', 'q{', 'ciw{}<Esc>P')
+map('n', 'q(', 'ciw()<Esc>P')
+map('n', 'q[', 'ciw[]<Esc>P')
+-- Put Selected text in quotes/parentheses/brackets
 map('x', "q'", "xi''<Esc>P")
 map('x', 'q"', 'xi""<Esc>P')
 map('x', 'q`', 'xi``<Esc>P')
--- Put Selected text in {} / [] / ()
 map('x', 'q{', 'xi{}<Esc>P')
 map('x', 'q[', 'xi[]<Esc>P')
 map('x', 'q(', 'xi()<Esc>P')
+-- Delete quotes/parentheses/brackets around word/text
+map('n', "dq'", "di'hPl2x")
+map('n', 'dq"', 'di"hPl2x')
+map('n', 'dq`', 'di`hPl2x')
+map('n', 'dq{', 'di{hPl2x')
+map('n', 'dq(', 'di(hPl2x')
+map('n', 'dq[', 'di[hPl2x')
 -- Beginning of line / end of line
 map('n', '<Leader>1', '0')
 map('n', '<Leader>2', '$')
