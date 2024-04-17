@@ -34,10 +34,12 @@ cmp.setup({
       behavior = cmp.ConfirmBehavior.Replace,
       select = true
     }),
-    ['<C-l>'] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true
-    }),
+    -- ['<C-l>'] = cmp.mapping.confirm({
+    --   behavior = cmp.ConfirmBehavior.Replace,
+    --   select = true
+    -- }),
+    ['<C-p>'] = cmp.config.disable,
+    ['<C-u>'] = cmp.mapping.select_prev_item()
   }),
   sources = cmp.config.sources({
     { name = "nvim_lsp" },

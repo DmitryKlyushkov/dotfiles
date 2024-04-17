@@ -20,8 +20,11 @@ map('n', '<leader>s', ':w<CR>')
 -- Close buffer/all buffers
 map('n', '<leader>qq', ':bd<CR>')
 map('n', '<leader>qa', ':w | %bd | e#<CR>')
--- Delete forward char
+-- Delete next char
 map('i', '<C-l>', '<Del>')
+-- Jump over next/prev char
+map('i', '<C-k>', '<ESC>la')
+map('i', '<C-j>', '<ESC>ha')
 -- Delete a line
 map('n', '<A-w>', ':d<CR>')
 map('i', '<A-w>', delete_line)
