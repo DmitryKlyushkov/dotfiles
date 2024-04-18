@@ -30,6 +30,7 @@ vim.opt.wrap = true                                 -- No Wrap lines
 vim.opt.backspace = { 'start', 'eol', 'indent' }    -- Allows Backspace key to delete characters at the start & end of the line & within the indentation)
 vim.opt.path:append { '**' }                        -- Finding files - Search down into subfolders
 vim.opt.wildignore:append { '*/node_modules/*' }    -- Folders/Files ignored by file navigation commands like :edit and :find
+vim.opt.clipboard = "unnamedplus"                   -- Yank to copy to the system clipboard outside of Neovim
 
 -- Add asterisks in block comments
 vim.opt.formatoptions:append { 'r' }
@@ -44,4 +45,3 @@ vim.opt.foldenable = false -- Disable folding at startup
 vim.opt.foldlevelstart = 99
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-
