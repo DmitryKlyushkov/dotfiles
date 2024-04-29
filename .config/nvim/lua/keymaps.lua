@@ -9,6 +9,13 @@ local function delete_line()
   vim.api.nvim_set_current_line('')
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Esc>', true, true, true), 'n', true)
 end
+-- Create a session
+local function mksession()
+  -- Prompt for an argument
+  local arg = vim.fn.input("Enter session name: ")
+  -- Execute the mksession command with the provided argument
+  vim.cmd("mksession ~/.config/nvim/sessions/" .. arg .. ".vim")
+end
 
 -- Leader key
 vim.g.mapleader = ' '
@@ -18,8 +25,10 @@ map('i', '<C-CR>', '<esc>o')
 -- Save current file
 map('n', '<leader>s', ':w<CR>')
 -- Close buffer/all buffers
-map('n', '<leader>qq', ':bd<CR>')
+map('n', '<leader>qq', ':wqa<CR>')
 map('n', '<leader>qa', ':w | %bd | e#<CR>')
+-- Create a session
+map('n', '<Leader>cs', mksession)
 -- Delete next char
 map('i', '<C-l>', '<Del>')
 -- Jump over next/prev char
@@ -40,8 +49,8 @@ map('x', "q'", "xi''<Esc>P")
 map('x', 'q"', 'xi""<Esc>P')
 map('x', 'q`', 'xi``<Esc>P')
 map('x', 'q{', 'xi{}<Esc>P')
-map('x', 'q[', 'xi[]<Esc>P')
 map('x', 'q(', 'xi()<Esc>P')
+map('x', 'q[', 'xi[]<Esc>P')
 -- Delete quotes/parentheses/brackets around word/text
 map('n', "dq'", "di'hPl2x")
 map('n', 'dq"', 'di"hPl2x')

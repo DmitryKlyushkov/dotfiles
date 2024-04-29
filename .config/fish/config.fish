@@ -14,6 +14,20 @@ alias cc "clear"
 alias bb "cd .."
 command -qv nvim && alias vim nvim
 
+# Custom functions
+# Open this neovim session (os session_name)
+function os
+    nvim -S ~/.config/nvim/sessions/$argv[1].vim
+end
+# Delete this neovim session (ds session_name)
+function ds
+  rm ~/.config/nvim/sessions/$argv[1].vim
+end
+# Echo all neovim sessions
+function ss
+  ll ~/.config/nvim/sessions/
+end
+
 # Custom Keybindings
 function fish_user_key_bindings
   # Vim-like accept suggestion
