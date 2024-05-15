@@ -5,7 +5,8 @@ vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
 
-vim.wo.number = true -- Line numbering in the current window
+vim.wo.number = true         -- Line numbering in the current window
+vim.wo.relativenumber = true -- Relative line numbers
 
 -- Options
 vim.opt.title = true                                -- Window title
