@@ -4,39 +4,58 @@ local function map(mode, lhs, rhs, opts)
   if opts then options = vim.tbl_extend('force', options, opts) end
   vim.keymap.set(mode, lhs, rhs, options)
 end
--- Delete a whole line of text function
-local function delete_line()
-  vim.api.nvim_set_current_line('')
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Esc>', true, true, true), 'n', true)
+
+-- Save current session and leave neovim
+local function make_session()
+  -- Session file path
+  local session_file_path = "~/.config/nvim/sessions/"
+  -- Name of the project
+  local current_dir = vim.fn.getcwd()
+  local folder_name = current_dir:match("([^\\/]*)$")
+  -- Save the current session as a project name
+  vim.cmd('mksession! ' .. session_file_path .. folder_name .. ".vim")
+  -- Save buffers and close neovim
+  vim.cmd(':wqa<CR>')
 end
--- Create a session
-local function mksession()
-  -- Prompt for an argument
-  local arg = vim.fn.input("Enter session name: ")
-  -- Execute the mksession command with the provided argument
-  vim.cmd("mksession ~/.config/nvim/sessions/" .. arg .. ".vim")
+
+-- Open last saved session of this project
+local function open_session()
+  -- Session file path
+  local session_file_path = "~/.config/nvim/sessions/"
+  -- Name of the project
+  local current_dir = vim.fn.getcwd()
+  local folder_name = current_dir:match("([^\\/]*)$")
+  -- Attempt to source the session file
+  local success, message = pcall(function()
+    vim.cmd(':source ' .. session_file_path .. folder_name .. ".vim")
+  end)
+  -- Check if sourcing was successful
+  if not success then
+    -- If there was an error, close telescope floating window and open session
+    vim.cmd(':q!')
+    vim.cmd(':source ' .. session_file_path .. folder_name .. ".vim")
+  end
 end
 
 -- Leader key
 vim.g.mapleader = ' '
--- Create a new line below
-map('n', '<C-CR>', 'o')
-map('i', '<C-CR>', '<esc>o')
--- Save current file
+-- Save current buffer
 map('n', '<leader>s', ':w<CR>')
--- Close buffer/all buffers
-map('n', '<leader>qq', ':wqa<CR>')
+-- Close all buffers
 map('n', '<leader>qa', ':w | %bd | e#<CR>')
--- Create a session
-map('n', '<Leader>cs', mksession)
+-- Save current session and close neovim
+map('n', '<leader>qq', make_session)
+-- Open last saved session of this project
+map('n', '<leader>ls', open_session)
+-- Delete a line/selected block into _register
+map('n', '<A-w>', '"_dd')
+map('i', '<A-w>', '<Esc>"_dd')
+map('x', '<A-w>', '"_d')
 -- Delete next char
 map('i', '<C-l>', '<Del>')
 -- Jump over next/prev char
 map('i', '<C-k>', '<ESC>la')
 map('i', '<C-j>', '<ESC>ha')
--- Delete a line
-map('n', '<A-w>', ':d<CR>')
-map('i', '<A-w>', delete_line)
 -- Put a word in quotes/parentheses/brackets
 map('n', "q'", "ciw''<Esc>P")
 map('n', 'q"', 'ciw""<Esc>P')
@@ -64,9 +83,14 @@ map('n', '<Leader>2', '$')
 -- Copy + Paste a line/selected lines
 map('n', '<Leader>j', 'yyPj')
 map('v', '<Leader>j', 'ygP')
--- Copy into + buffer (X11)
+-- Copy/paste into/from +register (system clipboard)
 map('v', '<C-c>', '"+y')
--- Delete and Copy into + buffer (X11)
+map('x', '<C-c>', '"+y')
+map('n', '<C-v>', '"+p')
+map('i', '<C-v>', '"+p')
+-- Paste from unnamed "register
+map('i', '<C-p>', '<C-r>"')
+-- Delete and Copy into +register
 map('v', '<C-x>', '"+d')
 -- Select all
 map('n', '<leader>a', 'gg<S-v>G')
@@ -86,3 +110,4 @@ map('n', '<leader><esc>', ':noh<return><esc>')
 map('n', '<C-1>', '<Plug>(VM-Add-Cursor-At-Pos)')
 -- Join below line and delete a space char
 map("n", "J", "Jx")
+
