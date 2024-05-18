@@ -53,7 +53,7 @@ packer.startup(function(use)
   }
   use "nvim-telescope/telescope.nvim"               -- Fuzzy Finder Over Lists
   use "nvim-telescope/telescope-file-browser.nvim"  -- File Browser Extension For Telescope
-  use "nvim-telescope/telescope-media-files.nvim"   -- Images And Font Previews For Telescope
+  -- use "nvim-telescope/telescope-media-files.nvim"   -- Images And Font Previews For Telescope
   use "windwp/nvim-ts-autotag"                      -- Treesitter To Auto Close And Auto Rename HTML Tags
   use "windwp/nvim-autopairs"                       -- Autopair Characters
   use {

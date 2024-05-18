@@ -46,18 +46,18 @@ telescope.setup {
         },
       },
     },
-    media_files = {
-      -- filetypes whitelist
-      -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-      filetypes = { "png", "webp", "jpg", "jpeg", "svg", "gif", "pdf" },
-      -- find command (defaults to `fd`)
-      find_cmd = "rg"
-    }
+    -- media_files = {
+    --   -- filetypes whitelist
+    --   -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+    --   filetypes = { "png", "webp", "jpg", "jpeg", "svg", "gif", "pdf" },
+    --   -- find command (defaults to `fd`)
+    --   find_cmd = "rg"
+    -- }
   },
 }
 
 telescope.load_extension("file_browser")
-telescope.load_extension("media_files")
+-- telescope.load_extension("media_files")
 
 -- File Browser
 vim.keymap.set("n", "sf", function()
@@ -97,8 +97,8 @@ vim.keymap.set('n', ';;', function()
   })
 end)
 -- Media Files
-vim.keymap.set("n", ";m", function()
-  telescope.extensions.media_files.media_files({
-    initial_mode = "normal"
-  })
-end)
+-- vim.keymap.set("n", ";m", function()
+--   telescope.extensions.media_files.media_files({
+--     initial_mode = "normal"
+--   })
+-- end)
