@@ -7,10 +7,6 @@
         "path": "./all.json"
       },
       {
-        "language": "php",
-        "path": "./php.json"
-      },
-      {
         "language": "css",
         "path": "./css.json"
       },
