@@ -34,3 +34,5 @@ Group.new("DiagnosticUnderlineInfo", colors.none, colors.none, styles.undercurl,
 Group.new("DiagnosticUnderlineHint", colors.none, colors.none, styles.undercurl, cHint)
 
 Group.new("HoverBorder", colors.yellow, colors.none, styles.NONE)
+-- Folded code background and foreground colors
+vim.cmd([[highlight Folded guibg=NONE guifg=#718ebc]])
