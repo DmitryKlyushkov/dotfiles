@@ -63,10 +63,10 @@ packer.startup(function(use)
     }
   }
   use "norcalli/nvim-colorizer.lua" -- Color Highlighter
-  use({
-    "iamcco/markdown-preview.nvim", -- Markdown Preview Plugin
-    run = function() vim.fn["mkdp#util#install"]() end,
-  })
+  -- use({
+  --   "iamcco/markdown-preview.nvim", -- Markdown Preview Plugin
+  --   run = function() vim.fn["mkdp#util#install"]() end,
+  -- })
   use "akinsho/nvim-bufferline.lua" -- Bufferline
   use "fedepujol/move.nvim"         -- Moving Lines Up and Down
   use "mg979/vim-visual-multi"      -- Multi cursor
