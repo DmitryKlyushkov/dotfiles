@@ -16,7 +16,13 @@ null_ls.setup {
   -- debug = true,
   sources = {
     null_ls.builtins.formatting.prettierd,
-    require("none-ls.diagnostics.eslint_d"),
+    require("none-ls.diagnostics.eslint_d").with({
+      extra_args = { "--no-ignore" }, -- Example of passing extra arguments
+      condition = function(utils)
+        return utils.root_has_file({ ".eslintrc.js", ".eslintrc.json", ".eslintrc.cjs" })
+      end,
+      eslint_disable_if_no_config = true, -- Disable eslint_d if no config file is found
+    }),
     null_ls.builtins.diagnostics.fish
   },
   on_attach = function(client, bufnr)
