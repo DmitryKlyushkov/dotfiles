@@ -3,7 +3,9 @@ if (not status) then return end
 
 n.setup({
   comment_italics = true,
+  background_set = false,
 })
+vim.cmd("colorscheme neosolarized")
 
 local cb = require('colorbuddy.init')
 local Color = cb.Color
