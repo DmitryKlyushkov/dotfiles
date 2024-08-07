@@ -27,7 +27,7 @@ saga.setup({
   },
   rename = {
     keys = {
-      quit = { 'q', '<ESC>' }
+      quit = { '<ESC>' }
     }
   },
   finder = {
