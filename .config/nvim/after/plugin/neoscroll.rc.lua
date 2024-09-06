@@ -10,10 +10,3 @@ require('neoscroll').setup({
   post_hook = nil,             -- Function to run after the scrolling animation ends
   performance_mode = false,    -- Disable "Performance Mode" on all buffers.
 })
-
-local t    = {}
--- Syntax: t[keys] = {function, {function arguments}}
-t['<C-u>'] = { 'scroll', { '-vim.wo.scroll', 'true', '300' } }
-t['<C-d>'] = { 'scroll', { 'vim.wo.scroll', 'true', '300' } }
-
-require('neoscroll.config').set_mappings(t)
