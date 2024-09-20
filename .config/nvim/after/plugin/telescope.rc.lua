@@ -16,22 +16,19 @@ telescope.setup {
         ["<esc>"] = actions.close,
         ["q"] = actions.close,
         ["l"] = actions.select_default,
-        ["<c-d>"] = actions.delete_buffer + actions.move_to_top,
+        ["d"] = actions.delete_buffer + actions.move_to_top,
         ["t"] = actions.file_tab,
         ["sv"] = actions.file_vsplit,
         ["ss"] = actions.file_split,
         ["<C-k>"] = actions.preview_scrolling_up,
         ["<C-j>"] = actions.preview_scrolling_down,
       },
-      i = {
-        ["<c-d>"] = actions.delete_buffer + actions.move_to_top
-      }
     },
   },
   extensions = {
     file_browser = {
       hidden = true,
-      theme = "dropdown",
+      theme = "dropdown", -- dropdown, ivy
       -- disables netrw and use telescope-file-browser in its place
       hijack_netrw = true,
       initial_mode = "normal",
@@ -84,11 +81,15 @@ vim.keymap.set('n', ';r', function()
 end)
 -- Help Tags
 vim.keymap.set('n', ';t', function()
-  builtin.help_tags()
+  builtin.help_tags({
+    initial_mode = "normal"
+  })
 end)
 -- Errors
 vim.keymap.set('n', ';e', function()
-  builtin.diagnostics()
+  builtin.diagnostics({
+    initial_mode = "normal"
+  })
 end)
 -- Open Buffers
 vim.keymap.set('n', ';;', function()
