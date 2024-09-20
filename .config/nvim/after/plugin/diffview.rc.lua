@@ -1,12 +1,21 @@
 local actions = require("diffview.actions")
 
+-- Mappings
+local M = require("utils")
+-- Diffview between project now and last commit
+M.map('n', '<Leader>dv', '<cmd>:DiffviewOpen<cr>')
+-- Diffview History of current branch
+M.map('n', '<Leader>dh', '<cmd>:DiffviewFileHistory<cr>')
+-- Diffview History of current file
+M.map('n', '<Leader>dhf', '<cmd>:DiffviewFileHistory %<cr>')
+
 require("diffview").setup({
   diff_binaries = false,    -- Show diffs for binaries
   enhanced_diff_hl = false, -- See |diffview-config-enhanced_diff_hl|
   git_cmd = { "git" },      -- The git executable followed by default args.
   hg_cmd = { "hg" },        -- The hg executable followed by default args.
   use_icons = true,         -- Requires nvim-web-devicons
-  show_help_hints = true,   -- Show hints for how to open the help panel
+  show_help_hints = false,  -- Show hints for how to open the help panel
   watch_index = true,       -- Update views and index buffers when the git index changes.
   icons = {                 -- Only applies when use_icons is true.
     folder_closed = "",
@@ -36,9 +45,9 @@ require("diffview").setup({
     },
     merge_tool = {
       -- Config for conflicted files in diff views during a merge or rebase.
-      layout = "diff3_horizontal",
-      disable_diagnostics = true, -- Temporarily disable diagnostics for diff buffers while in the view.
-      winbar_info = true,         -- See |diffview-config-view.x.winbar_info|
+      layout = "diff3_mixed",
+      disable_diagnostics = false, -- Temporarily disable diagnostics for diff buffers while in the view.
+      winbar_info = true,          -- See |diffview-config-view.x.winbar_info|
     },
     file_history = {
       -- Config for changed files in file history views.
