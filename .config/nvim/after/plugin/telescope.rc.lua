@@ -16,7 +16,7 @@ telescope.setup {
         ["<esc>"] = actions.close,
         ["q"] = actions.close,
         ["l"] = actions.select_default,
-        ["d"] = actions.delete_buffer + actions.move_to_top,
+        ["<c-d>"] = actions.delete_buffer + actions.move_to_top,
         ["t"] = actions.file_tab,
         ["sv"] = actions.file_vsplit,
         ["ss"] = actions.file_split,
