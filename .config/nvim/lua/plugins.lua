@@ -71,5 +71,6 @@ packer.startup(function(use)
   use "fedepujol/move.nvim"         -- Moving Lines Up and Down
   use "mg979/vim-visual-multi"      -- Multi cursor
   use 'karb94/neoscroll.nvim'       -- Smooth scroll
+  use "sindrets/diffview.nvim"      -- Diffview for git
   -- use "github/copilot.vim"       -- GitHub Copilot
 end)
