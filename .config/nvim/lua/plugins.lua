@@ -62,15 +62,11 @@ packer.startup(function(use)
       "JoosepAlviste/nvim-ts-context-commentstring" -- Treesitter Plugin For Setting The Commentstring Based On The Cursor Location In A File
     }
   }
-  use "norcalli/nvim-colorizer.lua" -- Color Highlighter
-  -- use({
-  --   "iamcco/markdown-preview.nvim", -- Markdown Preview Plugin
-  --   run = function() vim.fn["mkdp#util#install"]() end,
-  -- })
-  use "akinsho/nvim-bufferline.lua" -- Bufferline
-  use "fedepujol/move.nvim"         -- Moving Lines Up and Down
-  use "mg979/vim-visual-multi"      -- Multi cursor
-  use 'karb94/neoscroll.nvim'       -- Smooth scroll
-  use "sindrets/diffview.nvim"      -- Diffview for git
+  use "norcalli/nvim-colorizer.lua"   -- Color Highlighter
+  use "akinsho/nvim-bufferline.lua"   -- Bufferline
+  use "fedepujol/move.nvim"           -- Moving Lines Up and Down
+  use "jake-stewart/multicursor.nvim" -- Multiple cursors
+  use 'karb94/neoscroll.nvim'         -- Smooth scroll
+  use "sindrets/diffview.nvim"        -- Diffview for git
   -- use "github/copilot.vim"       -- GitHub Copilot
 end)

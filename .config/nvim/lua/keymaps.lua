@@ -101,7 +101,5 @@ M.map('n', '<C-k>', '<C-w>k')
 M.map('n', '<C-l>', '<C-w>l')
 -- Cancel Highlighting
 M.map('n', '<leader><esc>', ':noh<return><esc>')
--- (vim-visual-multi) Add cursor
-M.map('n', '<C-1>', '<Plug>(VM-Add-Cursor-At-Pos)')
 -- Join below line and delete a space char
 M.map("n", "J", "Jx")
