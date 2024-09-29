@@ -71,9 +71,9 @@ M.map('n', 'dq`', 'di`hPl2x')
 M.map('n', 'dq{', 'di{hPl2x')
 M.map('n', 'dq(', 'di(hPl2x')
 M.map('n', 'dq[', 'di[hPl2x')
--- Beginning of line / end of line
-M.map('n', '<Leader>1', '0')
-M.map('n', '<Leader>2', '$')
+-- Move cursor to the beginning/end of line
+M.map({ 'n', 'v', 'x' }, '<Leader>1', '0')
+M.map({ 'n', 'v', 'x' }, '<Leader>2', '$')
 -- Copy + Paste a line/selected lines
 M.map('n', '<Leader>j', 'yyPj')
 M.map('v', '<Leader>j', 'ygP')
