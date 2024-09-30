@@ -11,53 +11,58 @@ local fb_actions = require "telescope".extensions.file_browser.actions
 
 telescope.setup {
   defaults = {
+    sorting_strategy = "ascending", -- ascending, descending
     mappings = {
       n = {
+        -- Close Telescope Window
         ["<esc>"] = actions.close,
         ["q"] = actions.close,
+        -- Open File
         ["l"] = actions.select_default,
-        ["<c-d>"] = actions.delete_buffer + actions.move_to_top,
+        -- Open File In a New Tab
         ["t"] = actions.file_tab,
+        -- Open File In a Vertical/Horizontal Split
         ["sv"] = actions.file_vsplit,
         ["ss"] = actions.file_split,
+        -- Delete Buffer (;r)
+        ["<c-d>"] = actions.delete_buffer,
+        -- Delete Mark (;m)
+        ["dd"] = actions.delete_mark,
+        -- Preview Scrolling
         ["<C-k>"] = actions.preview_scrolling_up,
         ["<C-j>"] = actions.preview_scrolling_down,
+        ["<C-l>"] = actions.preview_scrolling_right,
+        ["<C-h>"] = actions.preview_scrolling_left,
       },
     },
+    layout_config = {
+      horizontal = {
+        prompt_position = "top",
+        preview_width = 0.4,
+      },
+    }
   },
   extensions = {
     file_browser = {
       hidden = true,
-      theme = "dropdown", -- dropdown, ivy
+      sorting_strategy = "ascending", -- ascending, descending
       -- disables netrw and use telescope-file-browser in its place
       hijack_netrw = true,
       initial_mode = "normal",
       mappings = {
-        -- your custom insert mode mappings
-        ["i"] = {
-          -- ["<C-w>"] = function() vim.cmd('normal vbd') end,
-        },
         ["n"] = {
-          -- your custom normal mode mappings
-          ["h"] = fb_actions.goto_parent_dir,
+          ["h"] = fb_actions.goto_parent_dir, -- Go To Parent Directory
         },
       },
     },
-    -- media_files = {
-    --   -- filetypes whitelist
-    --   -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-    --   filetypes = { "png", "webp", "jpg", "jpeg", "svg", "gif", "pdf" },
-    --   -- find command (defaults to `fd`)
-    --   find_cmd = "rg"
-    -- }
   },
 }
 
 telescope.load_extension("file_browser")
--- telescope.load_extension("media_files")
-
+-- Key Mappings
+local M = require("utils")
 -- File Browser
-vim.keymap.set("n", "sf", function()
+M.map("n", "sf", function()
   telescope.extensions.file_browser.file_browser({
     path = "%:p:h",
     cwd = telescope_buffer_dir(),
@@ -68,38 +73,36 @@ vim.keymap.set("n", "sf", function()
     initial_mode = "normal",
   })
 end)
+-- Marks
+M.map('n', ';m', function()
+  builtin.marks({
+    initial_mode = "normal",
+  })
+end)
 -- Find Files
-vim.keymap.set('n', ';f',
-  function()
-    builtin.find_files({
-      hidden = true,
-    })
-  end)
+M.map('n', ';f', function()
+  builtin.find_files({
+    hidden = true,
+  })
+end)
 -- Live Grep
-vim.keymap.set('n', ';r', function()
+M.map('n', ';r', function()
   builtin.live_grep()
 end)
 -- Help Tags
-vim.keymap.set('n', ';t', function()
-  builtin.help_tags({
-    initial_mode = "normal"
-  })
+M.map('n', ';t', function()
+  builtin.help_tags()
 end)
 -- Errors
-vim.keymap.set('n', ';e', function()
+M.map('n', ';e', function()
   builtin.diagnostics({
     initial_mode = "normal"
   })
 end)
--- Open Buffers
-vim.keymap.set('n', ';;', function()
+-- Buffers
+M.map('n', ';;', function()
   builtin.buffers({
     initial_mode = "normal"
   })
 end)
--- Media Files
--- vim.keymap.set("n", ";m", function()
---   telescope.extensions.media_files.media_files({
---     initial_mode = "normal"
---   })
--- end)
+
