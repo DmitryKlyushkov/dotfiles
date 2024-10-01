@@ -53,7 +53,6 @@ packer.startup(function(use)
   }
   use "nvim-telescope/telescope.nvim"               -- Fuzzy Finder Over Lists
   use "nvim-telescope/telescope-file-browser.nvim"  -- File Browser Extension For Telescope
-  -- use "nvim-telescope/telescope-media-files.nvim"   -- Images And Font Previews For Telescope
   use "windwp/nvim-ts-autotag"                      -- Treesitter To Auto Close And Auto Rename HTML Tags
   use "windwp/nvim-autopairs"                       -- Autopair Characters
   use {
@@ -65,8 +64,28 @@ packer.startup(function(use)
   use "norcalli/nvim-colorizer.lua"   -- Color Highlighter
   use "akinsho/nvim-bufferline.lua"   -- Bufferline
   use "fedepujol/move.nvim"           -- Moving Lines Up and Down
-  use "jake-stewart/multicursor.nvim" -- Multiple cursors
-  use 'karb94/neoscroll.nvim'         -- Smooth scroll
-  use "sindrets/diffview.nvim"        -- Diffview for git
+  use "jake-stewart/multicursor.nvim" -- Multiple Cursors
+  use 'karb94/neoscroll.nvim'         -- Smooth Scroll
+  use "sindrets/diffview.nvim"        -- Diffview For Git
+  use {
+    'vhyrro/luarocks.nvim',           -- Neovim Support For Luarocks
+    priority = 1001,                  -- this plugin needs to run before anything else
+    opts = {
+      rocks = { 'magick' },
+    },
+  }
+  use {
+    '3rd/image.nvim', -- Images Support In Neovim
+    dependencies = { 'luarocks.nvim' },
+    config = function(_, opts)
+      opts.integrations = opts.integrations or {}
+      opts.integrations.markdown = opts.integrations.markdown or {}
+      opts.integrations.markdown.only_render_image_at_cursor = true
+      opts.hijack_file_patterns = opts.hijack_file_patterns or {}
+      opts.hijack_file_patterns = { '*.png', '*.jpg', '*.jpeg', '*.gif', '*.webp', '*.avif', '*.heic' }
+      opts.window_overlap_clear_enabled = true -- tried to remove or change it to false, the outcome was the same
+      require('image').setup(opts)
+    end,
+  }
   -- use "github/copilot.vim"       -- GitHub Copilot
 end)
