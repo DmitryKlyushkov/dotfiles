@@ -83,7 +83,7 @@ packer.startup(function(use)
       opts.integrations.markdown.only_render_image_at_cursor = true
       opts.hijack_file_patterns = opts.hijack_file_patterns or {}
       opts.hijack_file_patterns = { '*.png', '*.jpg', '*.jpeg', '*.gif', '*.webp', '*.avif', '*.heic' }
-      opts.window_overlap_clear_enabled = true -- tried to remove or change it to false, the outcome was the same
+      opts.window_overlap_clear_enabled = true
       require('image').setup(opts)
     end,
   }

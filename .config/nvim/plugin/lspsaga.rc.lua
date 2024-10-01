@@ -42,7 +42,7 @@ saga.setup({
   outline = {
     close_after_jump = true,
     keys = {
-      quit = { 'q', '<ESC>' },
+      quit = { 'q', '<ESC>', '<leader>`' },
       toggle_or_jump = 'h',
       jump = 'l'
     }
