@@ -103,3 +103,7 @@ M.map('n', '<C-l>', '<C-w>l')
 M.map('n', '<leader><esc>', ':noh<return><esc>')
 -- Join below line and delete a space char
 M.map("n", "J", "Jx")
+-- Open Color Picker Window
+M.map('n', '<Leader>cp', '<cmd>:lua require("minty.huefy").open( { border = true } )<cr>')
+-- Open Color Shades Window
+M.map('n', '<Leader>cs', '<cmd>:lua require("minty.shades").open( { border = true } )<cr>')

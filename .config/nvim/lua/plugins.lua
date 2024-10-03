@@ -87,5 +87,7 @@ packer.startup(function(use)
       require('image').setup(opts)
     end,
   }
+  use "nvchad/volt"  -- Creating Reactive UI For Color Picker
+  use "nvchad/minty" -- Color Picker
   -- use "github/copilot.vim"       -- GitHub Copilot
 end)
