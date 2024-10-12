@@ -87,7 +87,19 @@ packer.startup(function(use)
       require('image').setup(opts)
     end,
   }
-  use "nvchad/volt"  -- Creating Reactive UI For Color Picker
-  use "nvchad/minty" -- Color Picker
+  use "nvchad/volt"                      -- Creating Reactive UI For Color Picker
+  use "nvchad/minty"                     -- Color Picker
+  use({
+    'mikesmithgh/kitty-scrollback.nvim', -- Kitty Scrollback Buffer With Neovim
+    disable = false,
+    opt = true,
+    cmd = { 'KittyScrollbackGenerateKittens', 'KittyScrollbackCheckHealth' },
+    event = { 'User KittyScrollbackLaunch' },
+    -- tag = '*', -- latest stable version, may have breaking changes if major version changed
+    -- tag = 'v5.0.0', -- pin specific tag
+    config = function()
+      require('kitty-scrollback').setup()
+    end,
+  })
   -- use "github/copilot.vim"       -- GitHub Copilot
 end)
