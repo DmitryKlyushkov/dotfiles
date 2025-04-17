@@ -26,7 +26,6 @@ ts.setup {
     "fish",
     "php",
     "yaml",
-    "swift",
     "lua",
   },
   -- autotag = {
