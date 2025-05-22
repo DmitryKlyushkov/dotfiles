@@ -15,6 +15,7 @@ end
 null_ls.setup {
   -- debug = true,
   sources = {
+    -- JS Linter/Formatter
     null_ls.builtins.formatting.prettierd,
     require("none-ls.diagnostics.eslint_d").with({
       extra_args = { "--no-ignore" }, -- Example of passing extra arguments
@@ -23,6 +24,9 @@ null_ls.setup {
       end,
       eslint_disable_if_no_config = true, -- Disable eslint_d if no config file is found
     }),
+    -- C++ Linter/Formatter
+    null_ls.builtins.diagnostics.clang_check,
+    null_ls.builtins.formatting.clang_format,
     null_ls.builtins.diagnostics.fish
   },
   on_attach = function(client, bufnr)

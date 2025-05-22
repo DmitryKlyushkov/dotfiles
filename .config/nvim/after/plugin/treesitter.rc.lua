@@ -22,11 +22,10 @@ ts.setup {
     "astro",
     "prisma",
     "regex",
-    "toml",
     "fish",
-    "php",
-    "yaml",
     "lua",
+    "python",
+    "cpp",
   },
   -- autotag = {
   --   enable = true,
