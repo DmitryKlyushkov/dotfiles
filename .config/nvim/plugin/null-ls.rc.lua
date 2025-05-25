@@ -25,9 +25,10 @@ null_ls.setup {
       eslint_disable_if_no_config = true, -- Disable eslint_d if no config file is found
     }),
     -- C++ Linter/Formatter
-    null_ls.builtins.diagnostics.clang_check,
     null_ls.builtins.formatting.clang_format,
-    null_ls.builtins.diagnostics.fish
+    null_ls.builtins.diagnostics.clang_tidy,
+    -- Fish Formatter
+    null_ls.builtins.diagnostics.fish,
   },
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then
