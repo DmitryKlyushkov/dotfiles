@@ -5,7 +5,6 @@ set -gx PATH ~/bin $PATH
 set -gx PATH ~/.local/bin $PATH
 set -gx RIPGREP_CONFIG_PATH ~/.config/.ripgreprc
 set -gx BROWSER firefox
-# set -gx PATH ~/.spoof-dpi/bin $PATH
 
 # Fish Greeting
 set -g fish_greeting ""
