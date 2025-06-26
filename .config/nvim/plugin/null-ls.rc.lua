@@ -1,7 +1,4 @@
-local status, null_ls = pcall(require, "null-ls")
-if not status then
-	return
-end
+local null_ls = require("null-ls")
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
@@ -15,9 +12,11 @@ local lsp_formatting = function(bufnr)
 end
 
 null_ls.setup({
-	-- debug = true,
+	debug = true,
 	sources = {
-		-- JS Linter/Formatter
+		-- Lua Formatter
+		null_ls.builtins.formatting.stylua,
+		-- JS/TS Formatter/Linter
 		null_ls.builtins.formatting.prettierd,
 		require("none-ls.diagnostics.eslint_d").with({
 			extra_args = { "--no-ignore" }, -- Example of passing extra arguments
@@ -26,12 +25,15 @@ null_ls.setup({
 			end,
 			eslint_disable_if_no_config = true, -- Disable eslint_d if no config file is found
 		}),
-		-- C++ Linter/Formatter
+		-- C++ Formatter/Linter
 		null_ls.builtins.formatting.clang_format,
-		null_ls.builtins.diagnostics.clang_tidy,
-		-- Fish Formatter
-		null_ls.builtins.diagnostics.fish,
+		require("none-ls.diagnostics.cpplint"),
+		-- Python Formatters
+		null_ls.builtins.formatting.black,
+		null_ls.builtins.formatting.isort,
+		-- require("none-ls.diagnostics.pylint"),
 	},
+	-- Format On Save
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
 			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
@@ -44,16 +46,6 @@ null_ls.setup({
 			})
 		end
 	end,
-})
--- Update Renaming tags on insert
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-	underline = true,
-	virtual_text = {
-		spacing = 5,
-		-- severity_limit = 'Warning',
-		vim.diagnostic.severity.WARN,
-	},
-	update_in_insert = true,
 })
 
 vim.api.nvim_create_user_command("DisableLspFormatting", function()
