@@ -1,0 +1,29 @@
+# feh key configuration.
+# Comments start with a # sign, do not use them mid-line.
+# Each line must be blank, a comment, or a key definition.
+#
+# key definition: <action name> <key1> [<key2> [<key3>]]
+#
+# Each <key> is an X11 keysym (as output by xev) with optional modifier.
+# For instance, C-x would be Ctrl+X, or 4-space Mod4+Space
+
+# Same for image navigation ...
+next_img Right
+prev_img Left
+
+# and image movement
+scroll_up    k
+scroll_down  j
+scroll_left  l
+scroll_right h
+
+# remove now conflicts with toggle_filenames, so change that
+toggle_filenames f
+
+# zooming
+zoom_in   plus
+zoom_out  minus
+
+# This leaves some conflicts with existing default bindings, but you should
+# get the idea.  And I'm not gonna fix the conflicts, I don't use qwerty ;-)
+
