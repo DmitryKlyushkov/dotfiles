@@ -9,7 +9,6 @@ vim.cmd([[packadd packer.nvim]])
 packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- Neovim Plugin Manager
 	use("williamboman/mason.nvim") -- Package Manager
-	use("williamboman/mason-lspconfig.nvim") -- Lspconfigs For Mason
 	use({
 		"svrana/neosolarized.nvim", -- Solarized Theme
 		requires = { "tjdevries/colorbuddy.nvim" }, -- Colorscheme Helper
