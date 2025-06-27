@@ -1,10 +1,41 @@
+# Interface
 gui:
+  theme:
+    selectedLineBgColor:
+      - "#0326a1"
+    activeBorderColor:
+      - "#69ff94"
+    inactiveBorderColor:
+      - "#fdf6e3"
+    cherryPickedCommitFgColor:
+      - "#57003c"
+      - bold
+    cherryPickedCommitBgColor:
+      - "#fdce0b"
+    defaultFgColor:
+      - "#fdf6e3"
+  nerdFontsVersion: "3"
   scrollPastBottom: false
   showBottomLine: false
   showCommandLog: false
-  theme:
-    selectedLineBgColor:
-      - reverse
-    selectedRangeBgColor:
-      - reverse
+  commitLength:
+    show: true
+  showNumstatInFilesView: true
+  commitHashLength: 0
+  showDivergenceFromBaseBranch: "onlyArrow"
+  border: rounded
 
+# Keybindings
+keybinding:
+  universal:
+    scrollUpMain: <c-k>
+    scrollDownMain: <c-j>
+    undo: z
+    prevItem: <disabled>
+    nextItem: <disabled>
+    quit-alt1: <disabled>
+    openRecentRepos: <disabled>
+  commits:
+    moveDownCommit: <down>
+    moveUpCommit: <up>
+    resetCherryPick: <c-c>
