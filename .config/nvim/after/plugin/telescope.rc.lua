@@ -134,6 +134,25 @@ end
 
 local image_preview = telescope_image_preview()
 
+local action_state = require("telescope.actions.state")
+-- Custom function to handle file opening with feh for images
+local function open_files(prompt_bufnr)
+	local selection = action_state.get_selected_entry()
+	local file_path = selection.path or selection[1] -- Get the file path
+	local extension = vim.fn.fnamemodify(file_path, ":e"):lower() -- Get file extension
+
+	-- List of image extensions to open with feh
+	local image_extensions = { "png", "jpg", "jpeg", "gif", "webp", "avif" }
+
+	if vim.tbl_contains(image_extensions, extension) then
+		-- Open image with feh
+		vim.fn.system(string.format("feh -F --draw-filename %s &", vim.fn.shellescape(file_path)))
+	else
+		-- Fallback to default open behavior
+		actions.file_edit(prompt_bufnr)
+	end
+end
+
 telescope.setup({
 	defaults = {
 		file_previewer = image_preview.file_previewer,
@@ -145,7 +164,8 @@ telescope.setup({
 				["<esc>"] = actions.close,
 				["q"] = actions.close,
 				-- Open File
-				["l"] = actions.select_default,
+				-- ["l"] = actions.select_default,
+				["l"] = open_files,
 				-- Open File In a New Tab
 				["t"] = actions.file_tab,
 				-- Open File In a Vertical/Horizontal Split
