@@ -82,8 +82,8 @@ M.map("v", "<Leader>j", "ygP")
 -- Copy/paste into/from +register (system clipboard)
 M.map("v", "<C-c>", '"+y')
 M.map("x", "<C-c>", '"+y')
-M.map("n", "<C-v>", '"+p')
-M.map("i", "<C-v>", '"+p')
+M.map("n", "<C-v>", '"+P')
+M.map("i", "<C-v>", '"+P')
 -- Paste from unnamed "register
 M.map("i", "<C-p>", '<C-r>"')
 -- Delete and Copy into +register
