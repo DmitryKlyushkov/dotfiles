@@ -63,7 +63,7 @@ packer.startup(function(use)
 		},
 	})
 	use("norcalli/nvim-colorizer.lua") -- Color Highlighter
-	use("akinsho/nvim-bufferline.lua") -- Bufferline
+	use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" }) -- Bufferline
 	use("fedepujol/move.nvim") -- Moving Lines Up and Down
 	use("jake-stewart/multicursor.nvim") -- Multiple Cursors
 	use("karb94/neoscroll.nvim") -- Smooth Scroll
