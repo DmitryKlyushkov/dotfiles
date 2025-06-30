@@ -1,4 +1,4 @@
-# Interface
+# Graphical User Interface
 gui:
   theme:
     selectedLineBgColor:
@@ -39,3 +39,22 @@ keybinding:
     moveDownCommit: <down>
     moveUpCommit: <up>
     resetCherryPick: <c-c>
+
+# Custom functions
+customCommands:
+  - key: "<c-q>"
+    context: "global"
+    prompts:
+      - type: "menu"
+        title: "Git Prefixes"
+        options:
+          - name: "fix:      исправление багов и ошибок в коде"
+          - name: "feat:     добавление новых функций"
+          - name: "chore:    minification, compilation, unit testing, linting"
+          - name: "style:    форматирование, опечатки, соблюдения стандартов кода."
+          - name: "refactor: изменения кода, которые улучшают структуру или читаемость"
+          - name: "docs:     изменения документации, файла README, документы API или комментарии"
+          - name: "build:    изменения, которые влияют на систему сборки или внешние зависимости"
+          - name: "ci:       изменения CI/CD - автоматическая сборка, деплой и тестирование приложения"
+          - name: "perf:     улучшения производительности для оптимизации кода не меняя его поведения"
+          - name: "test:     добавление или изменение тестов"
