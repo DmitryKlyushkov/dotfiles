@@ -21,7 +21,7 @@ gui:
   commitLength:
     show: true
   showNumstatInFilesView: true
-  commitHashLength: 0
+  commitHashLength: 8
   showDivergenceFromBaseBranch: "onlyArrow"
   border: rounded
 

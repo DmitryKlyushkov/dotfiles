@@ -149,7 +149,7 @@ local function open_files(prompt_bufnr)
 		vim.fn.system(string.format("feh -F --draw-filename %s &", vim.fn.shellescape(file_path)))
 	else
 		-- Fallback to default open behavior
-		actions.file_edit(prompt_bufnr)
+		actions.select_default(prompt_bufnr)
 	end
 end
 

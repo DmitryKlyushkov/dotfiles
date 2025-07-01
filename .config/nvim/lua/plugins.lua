@@ -49,7 +49,8 @@ packer.startup(function(use)
 	use({
 		"nvim-treesitter/nvim-treesitter", -- Interface For A Tree-Sitter (Language Parsing Tool)
 		run = function()
-			require("nvim-treesitter.install").update({ with_sync = true })
+			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+			ts_update()
 		end,
 	})
 	use("nvim-telescope/telescope.nvim") -- Fuzzy Finder Over Lists
