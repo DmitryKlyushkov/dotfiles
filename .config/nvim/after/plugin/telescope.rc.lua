@@ -135,18 +135,22 @@ end
 local image_preview = telescope_image_preview()
 
 local action_state = require("telescope.actions.state")
--- Custom function to handle file opening with feh for images
+-- Custom function to handle file opening
 local function open_files(prompt_bufnr)
 	local selection = action_state.get_selected_entry()
 	local file_path = selection.path or selection[1] -- Get the file path
 	local extension = vim.fn.fnamemodify(file_path, ":e"):lower() -- Get file extension
 
-	-- List of image extensions to open with feh
+	-- Lists of file extensions
 	local image_extensions = { "png", "jpg", "jpeg", "gif", "webp", "avif" }
+	local document_extensions = { "pdf", "epub", "oxps" }
 
 	if vim.tbl_contains(image_extensions, extension) then
-		-- Open image with feh
+		-- Open image with feh in full-screen mode
 		vim.fn.system(string.format("feh -F --draw-filename %s &", vim.fn.shellescape(file_path)))
+	elseif vim.tbl_contains(document_extensions, extension) then
+		-- Open document with zathura in full-screen mode
+		vim.fn.system(string.format("zathura --mode fullscreen %s &", vim.fn.shellescape(file_path)))
 	else
 		-- Fallback to default open behavior
 		actions.select_default(prompt_bufnr)
