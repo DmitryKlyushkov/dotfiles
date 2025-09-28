@@ -1,0 +1,393 @@
+{
+  // Vim Extension Keydindings
+  // leader key
+  "vim.leader": "<space>",
+  "vim.hlsearch": true,
+  // Prevents cursor from causing code unfolding ( https://github.com/VSCodeVim/Vim/issues/4517#issuecomment-1332617083 )
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["j"],
+      "commands": ["cursorDown"]
+    },
+    {
+      "before": ["k"],
+      "commands": ["cursorUp"]
+    }
+  ],
+  // Vim normal mode keybinding
+  "vim.normalModeKeyBindings": [
+    // Unmap s Key
+    {
+      "before": ["s"],
+      "after": [""]
+    },
+    // Hide selected text highlights
+    {
+      "before": ["leader", "<Esc>"],
+      "commands": [":nohl"]
+    },
+    // Save current file
+    {
+      "before": ["leader", "s"],
+      "commands": ["workbench.action.files.save"]
+    },
+    // Quit VSCode
+    {
+      "before": ["leader", "q", "q"],
+      "commands": ["workbench.action.quit"]
+    },
+    // Open color picker
+    {
+      "before": ["leader", "c", "p"],
+      "commands": ["extension.cm_open_picker"]
+    },
+    // Open color manager(palette)
+    {
+      "before": ["leader", "c", "m"],
+      "commands": ["extension.cm_open_palette"]
+    },
+    // Move cursor to the beginning/end of line
+    {
+      "before": ["leader", "1"],
+      "after": ["0"]
+    },
+    {
+      "before": ["leader", "2"],
+      "after": ["$"]
+    },
+    // Copy + Paste a line/selected lines
+    {
+      "before": ["leader", "j"],
+      "after": ["y", "y", "P", "j"]
+    },
+    // Paste from clipboard
+    {
+      "before": ["<C-v>"],
+      "after": ["\"", "+", "P"]
+    },
+    // Select all
+    {
+      "before": ["leader", "a"],
+      "after": ["g", "g", "<S-v>", "G"]
+    },
+    // Horisontal/Vertical Split
+    {
+      "before": ["s", "s"],
+      "commands": ["workbench.action.splitEditorDown"]
+    },
+    {
+      "before": ["s", "v"],
+      "commands": ["workbench.action.splitEditorRight"]
+    },
+    // Show hover
+    {
+      "before": ["z", "z"],
+      "commands": ["editor.action.showDefinitionPreviewHover"]
+    },
+    // Join below line and delete a space char
+    {
+      "before": ["J"],
+      "after": ["J", "x"]
+    },
+    // Move current line up/down
+    {
+      "before": ["<C-k>"],
+      "commands": ["editor.action.moveLinesUpAction"]
+    },
+    {
+      "before": ["<C-j>"],
+      "commands": ["editor.action.moveLinesDownAction"]
+    },
+    // File explorer
+    {
+      "before": ["s", "f"],
+      "commands": ["workbench.view.explorer"]
+    },
+    // Find in files
+    {
+      "before": [";", "r"],
+      "commands": ["workbench.action.findInFiles"]
+    },
+    // Open file
+    {
+      "before": [";", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    // Open error list
+    {
+      "before": [";", "e"],
+      "commands": ["workbench.actions.view.problems"]
+    },
+    // Open bookmark list
+    {
+      "before": [";", "m"],
+      "commands": ["bookmarksExplorer.focus"]
+    },
+    // Toggle bookmark on the line
+    {
+      "before": ["leader", "b"],
+      "commands": ["bookmarks.toggle"]
+    },
+    // Clear all bookmarks in this file
+    {
+      "before": ["leader", "b", "d"],
+      "commands": ["bookmarks.clear"]
+    },
+    // Next error
+    {
+      "before": ["leader", "3"],
+      "commands": ["editor.action.marker.next"]
+    },
+    // Previous error
+    {
+      "before": ["leader", "4"],
+      "commands": ["editor.action.marker.prev"]
+    },
+    // Go to definition
+    {
+      "before": ["g", "d"],
+      "commands": ["editor.action.revealDefinition"]
+    },
+    // Peek definition
+    {
+      "before": ["p", "d"],
+      "commands": ["editor.action.peekDefinition"]
+    },
+    // Go to type definition
+    {
+      "before": ["g", "t"],
+      "commands": ["editor.action.goToTypeDefinition"]
+    },
+    // Peek type definition
+    {
+      "before": ["p", "t"],
+      "commands": ["editor.action.peekTypeDefinition"]
+    },
+    // Go to source code definition
+    {
+      "before": ["g", "s"],
+      "commands": ["typescript.goToSourceDefinition"]
+    },
+    // Peek implementations
+    {
+      "before": ["p", "i"],
+      "commands": ["editor.action.peekImplementation"]
+    },
+    // Peek references
+    {
+      "before": ["p", "r"],
+      "commands": ["editor.action.referenceSearch.trigger"]
+    },
+    // Gitlens: toggle heat map (different color for different commits)
+    {
+      "before": ["leader", "g", "h", "m"],
+      "commands": ["gitlens.toggleFileHeatmap"]
+    },
+    // Gitlens: open git file history
+    {
+      "before": ["leader", "g", "f", "h"],
+      "commands": ["gitlens.openFileHistory"]
+    },
+    // Git: open changes (unstaged)
+    {
+      "before": ["leader", "g", "c"],
+      "commands": ["git.openChange"]
+    },
+    // Put current word into quotes/brakets etc
+    {
+      "before": ["q", "\""],
+      "after": ["c", "i", "w", "\"", "\"", "<Esc>", "P"]
+    },
+    {
+      "before": ["q", "'"],
+      "after": ["c", "i", "w", "'", "'", "<Esc>", "P"]
+    },
+    {
+      "before": ["q", "`"],
+      "after": ["c", "i", "w", "`", "`", "<Esc>", "P"]
+    },
+    {
+      "before": ["q", "["],
+      "after": ["c", "i", "w", "[", "]", "<Esc>", "P"]
+    },
+    {
+      "before": ["q", "{"],
+      "after": ["c", "i", "w", "{", "}", "<Esc>", "P"]
+    },
+    {
+      "before": ["q", "("],
+      "after": ["c", "i", "w", "(", ")", "<Esc>", "P"]
+    },
+    // Delete quotes/brakets around the word
+    {
+      "before": ["d", "q", "\""],
+      "after": ["d", "i", "\"", "h", "P", "l", "2", "x"]
+    },
+    {
+      "before": ["d", "q", "'"],
+      "after": ["d", "i", "'", "h", "P", "l", "2", "x"]
+    },
+    {
+      "before": ["d", "q", "`"],
+      "after": ["d", "i", "`", "h", "P", "l", "2", "x"]
+    },
+    {
+      "before": ["d", "q", "["],
+      "after": ["d", "i", "[", "h", "P", "l", "2", "x"]
+    },
+    {
+      "before": ["d", "q", "{"],
+      "after": ["d", "i", "{", "h", "P", "l", "2", "x"]
+    },
+    {
+      "before": ["d", "q", "("],
+      "after": ["d", "i", "(", "h", "P", "l", "2", "x"]
+    }
+  ],
+  // Vim insert mode keybindings
+  "vim.insertModeKeyBindings": [
+    // Delete next char
+    {
+      "before": ["<C-l>"],
+      "after": ["<Del>"]
+    },
+    // Paste from unnamed register (yy)
+    {
+      "before": ["<C-p>"],
+      "after": ["<C-r>", "\""]
+    },
+    // Delete word
+    {
+      "before": ["<C-w>"],
+      "commands": ["deleteWordLeft"]
+    }
+  ],
+  // Vim visual mode keybindings
+  "vim.visualModeKeyBindings": [
+    // Move cursor to the beginning/end of line
+    {
+      "before": ["leader", "1"],
+      "after": ["0"]
+    },
+    // Toggle block comment
+    {
+      "before": ["g", "b"],
+      "commands": ["editor.action.blockComment"]
+    },
+    // Move cursor to end of the line
+    {
+      "before": ["leader", "2"],
+      "after": ["$"]
+    },
+    // Copy + Paste a line/selected lines
+    {
+      "before": ["leader", "j"],
+      "after": ["y", "g", "P"]
+    },
+    // Cut into clipboard
+    {
+      "before": ["<C-x>"],
+      "after": ["\"", "+", "d"]
+    },
+    // Paste from clipboard
+    {
+      "before": ["<C-v>"],
+      "after": ["\"", "+", "P"]
+    },
+    // Put selected text into quotes/brakets etc
+    {
+      "before": ["q", "'"],
+      "after": ["x", "i", "'", "'", "<Esc>", "P"]
+    },
+    {
+      "before": ["q", "\""],
+      "after": ["x", "i", "\"", "\"", "<Esc>", "P"]
+    },
+    {
+      "before": ["q", "`"],
+      "after": ["x", "i", "`", "`", "<Esc>", "P"]
+    },
+    {
+      "before": ["q", "["],
+      "after": ["x", "i", "[", "]", "<Esc>", "P"]
+    },
+    {
+      "before": ["q", "{"],
+      "after": ["x", "i", "{", "}", "<Esc>", "P"]
+    },
+    {
+      "before": ["q", "("],
+      "after": ["x", "i", "(", ")", "<Esc>", "P"]
+    }
+  ],
+
+  // Macros Extension
+  "macros": {
+    // Open file in File Explorer and close sidebar
+    "openAndToggleSidebar": [
+      "explorer.openAndPassFocus",
+      "workbench.action.toggleSidebarVisibility"
+    ],
+    // Open file in Search and close sidebar
+    "openSearchAndToggleSidebar": [
+      "search.action.openResult",
+      "workbench.action.toggleSidebarVisibility"
+    ]
+  },
+  // Gitlens Extension
+  "gitlens.views.tags.files.layout": "list",
+  "gitlens.views.commitDetails.files.layout": "tree",
+  "gitlens.graph.minimap.enabled": false,
+  "gitlens.graph.minimap.additionalTypes": ["tags"],
+  "gitlens.graph.layout": "editor",
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": true
+  },
+  "git.blame.editorDecoration.enabled": false,
+  "git.blame.statusBarItem.enabled": false,
+  // SVG Extension
+  "svg.preview.autoShow": true,
+  "svg.preview.showRuler": true,
+  "svg.preview.toolbarSize": "mini",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  // Bookmarks Extension
+  "bookmarks.useWorkaroundForFormatters": true,
+  // Default Settings
+  "editor.minimap.enabled": false,
+  "editor.minimap.renderCharacters": false,
+  "editor.cursorBlinking": "solid",
+  "editor.cursorWidth": 2,
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.occurrencesHighlight": "off",
+  "editor.guides.indentation": false,
+  "editor.stickyScroll.enabled": false,
+  "editor.wordWrap": "on",
+  "editor.smoothScrolling": true,
+  "editor.selectionHighlightMultiline": true,
+  "editor.selectionHighlight": false,
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "workbench.editorAssociations": {
+    "*.svg": "default"
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.list.smoothScrolling": true,
+  "workbench.navigationControl.enabled": false,
+  "workbench.activityBar.location": "hidden",
+  "workbench.layoutControl.enabled": false,
+  "workbench.editor.enablePreview": false,
+  "workbench.colorTheme": "GitHub Dark Default",
+  "diffEditor.codeLens": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "chat.commandCenter.enabled": false,
+  "terminal.integrated.smoothScrolling": true,
+  "window.controlsStyle": "hidden",
+  "window.menuBarVisibility": "compact",
+  "liveServer.settings.donotShowInfoMsg": true,
+  "mcpServers": {}
+}
