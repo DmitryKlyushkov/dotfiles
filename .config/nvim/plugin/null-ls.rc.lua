@@ -26,11 +26,11 @@ null_ls.setup({
 			eslint_disable_if_no_config = true, -- Disable eslint_d if no config file is found
 		}),
 		-- C++ Formatter/Linter
-		null_ls.builtins.formatting.clang_format,
-		require("none-ls.diagnostics.cpplint"),
+		-- null_ls.builtins.formatting.clang_format,
+		-- require("none-ls.diagnostics.cpplint"),
 		-- Python Formatters
-		null_ls.builtins.formatting.black,
-		null_ls.builtins.formatting.isort,
+		-- null_ls.builtins.formatting.black,
+		-- null_ls.builtins.formatting.isort,
 		-- require("none-ls.diagnostics.pylint"),
 	},
 	-- Format On Save

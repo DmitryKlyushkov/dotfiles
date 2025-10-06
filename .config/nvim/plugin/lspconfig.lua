@@ -16,7 +16,9 @@ end
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
+---@diagnostic disable-next-line: unused-local
 local on_attach = function(client, bufnr)
+	---@diagnostic disable-next-line: unused-function, unused-local
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
@@ -53,10 +55,50 @@ protocol.CompletionItemKind = {
 -- Set up completion using nvim_cmp with LSP source
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-vim.lsp.enable("flow")
-vim.lsp.enable("ts_ls")
-vim.lsp.enable("sourcekit")
-vim.lsp.enable("lua_ls")
+vim.lsp.enable({
+	-- CSS variables autocompletion and go-to-definition
+	-- https://github.com/vunguyentuan/vscode-css-variables/
+	-- default vim.lsp.config(): https://github.com/neovim/nvim-lspconfig/blob/master/lsp/css_variables.lua
+	"css_variables",
+	-- CSS language server extracted from VSCode
+	-- https://github.com/hrsh7th/vscode-langservers-extracted
+	-- default vim.lsp.config(): https://github.com/neovim/nvim-lspconfig/blob/master/lsp/cssls.lua
+	"cssls",
+	-- Language server for autocompletion and go-to-definition functionality for CSS modules
+	-- https://github.com/antonk52/cssmodules-language-server
+	-- default vim.lsp.config(): https://github.com/neovim/nvim-lspconfig/blob/master/lsp/cssmodules_ls.lua
+	"cssmodules_ls",
+	-- HTML language server extracted from VSCode
+	-- https://github.com/hrsh7th/vscode-langservers-extracted
+	-- default vim.lsp.config(): https://github.com/neovim/nvim-lspconfig/blob/master/lsp/html.lua
+	"html",
+	-- Emmet language server
+	-- https://github.com/olrtg/emmet-language-server
+	-- default vim.lsp.config(): https://github.com/neovim/nvim-lspconfig/blob/master/lsp/emmet_language_server.lua
+	"emmet_language_server",
+	-- JSON language server extracted from VSCode
+	-- https://github.com/hrsh7th/vscode-langservers-extracted
+	-- default vim.lsp.config(): https://github.com/neovim/nvim-lspconfig/blob/master/lsp/jsonls.lua
+	"jsonls",
+	-- Lua language server
+	-- https://github.com/luals/lua-language-serve
+	-- default vim.lsp.config(): https://github.com/neovim/nvim-lspconfig/blob/master/lsp/lua_ls.lua
+	"lua_ls",
+	-- Typescript language server
+	-- https://github.com/typescript-language-server/typescript-language-server
+	-- default vim.lsp.config(): https://github.com/neovim/nvim-lspconfig/blob/master/lsp/ts_ls.lua
+	-- configs: https://github.com/typescript-language-server/typescript-language-server/blob/master/docs/configuration.md
+	"ts_ls",
+	-- Tailwind CSS Language Server
+	-- https://github.com/tailwindlabs/tailwindcss-intellisense
+	-- default vim.lsp.config(): https://github.com/neovim/nvim-lspconfig/blob/master/lsp/tailwindcss.lua
+	"tailwindcss",
+	-- Language Server for the Prisma JavaScript and TypeScript ORM
+	-- default vim.lsp.config(): https://github.com/neovim/nvim-lspconfig/blob/master/lsp/prismals.lua
+	"prismals",
+})
+
+-- lua_ls configs
 vim.lsp.config("lua_ls", {
 	capabilities = capabilities,
 	on_attach = function(client, bufnr)
@@ -79,20 +121,13 @@ vim.lsp.config("lua_ls", {
 	},
 })
 
-vim.lsp.enable("emmet_language_server")
-vim.lsp.enable("tailwindcss")
-vim.lsp.enable("cssls")
-vim.lsp.enable("astro")
-vim.lsp.enable("prismals")
-vim.lsp.enable("clang")
-
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-	underline = true,
-	update_in_insert = false,
-	virtual_text = { spacing = 4, prefix = "●" },
-	severity_sort = true,
-})
-
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+-- 	underline = true,
+-- 	update_in_insert = false,
+-- 	virtual_text = { spacing = 4, prefix = "●" },
+-- 	severity_sort = true,
+-- })
+--
 -- Diagnostic symbols in the sign column (gutter)
 local signs = { Error = "󰗖 ", Warn = "󰀪 ", Hint = "󰛩 ", Info = " " }
 for type, icon in pairs(signs) do
@@ -106,6 +141,7 @@ vim.diagnostic.config({
 	},
 	update_in_insert = true,
 	float = {
-		source = "if_many", -- Or "always"
+		-- "if_many" or "always"
+		source = "if_many",
 	},
 })
