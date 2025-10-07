@@ -22,14 +22,14 @@ bindsym $mod+Shift+q kill
 # launch kitty terminal
 bindsym $mod+Return exec kitty
 # launch vivaldi browser
-bindsym $mod+z exec vivaldi
+bindsym $mod+z exec vivaldi-snapshot
 ## launch firefox
 # bindsym $mod+z exec firefox
 # launch chromium
 # bindsym $mod+z exec chromium --disable-breakpad --disable-crash-reporter
 # launch google chrome
 # bindsym $mod+z exec google-chrome-stable
- launch ranger
+# launch ranger
 bindsym $mod+x exec kitty -e ranger
 # launch btop+
 bindsym $mod+c exec kitty -e btop
