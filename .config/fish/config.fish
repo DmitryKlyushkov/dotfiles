@@ -4,7 +4,7 @@ set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
 set -gx PATH ~/.local/bin $PATH
 set -gx RIPGREP_CONFIG_PATH ~/.config/.ripgreprc
-set -gx BROWSER vivaldi
+set -gx BROWSER vivaldi-snapshot
 
 # Fish Greeting
 set -g fish_greeting ""

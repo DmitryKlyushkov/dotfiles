@@ -179,6 +179,16 @@ bufferline.setup({
 	},
 })
 
--- Tab switch
+-- Tab cycle
 vim.keymap.set("n", "<A-Tab>", "<Cmd>BufferLineCycleNext<CR>", {})
 vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})
+-- Jump to the exact tab
+vim.keymap.set("n", "<A-1>", "<Cmd>lua require('bufferline').go_to(1, true)<CR>", {})
+vim.keymap.set("n", "<A-2>", "<Cmd>lua require('bufferline').go_to(2, true)<CR>", {})
+vim.keymap.set("n", "<A-3>", "<Cmd>lua require('bufferline').go_to(3, true)<CR>", {})
+vim.keymap.set("n", "<A-4>", "<Cmd>lua require('bufferline').go_to(4, true)<CR>", {})
+vim.keymap.set("n", "<A-5>", "<Cmd>lua require('bufferline').go_to(5, true)<CR>", {})
+vim.keymap.set("n", "<A-6>", "<Cmd>lua require('bufferline').go_to(6, true)<CR>", {})
+vim.keymap.set("n", "<A-7>", "<Cmd>lua require('bufferline').go_to(7, true)<CR>", {})
+vim.keymap.set("n", "<A-8>", "<Cmd>lua require('bufferline').go_to(8, true)<CR>", {})
+vim.keymap.set("n", "<A-9>", "<Cmd>lua require('bufferline').go_to(9, true)<CR>", {})

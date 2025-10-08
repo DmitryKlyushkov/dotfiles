@@ -39,9 +39,9 @@ M.map("n", "s", "")
 M.map("n", "<leader>s", ":w<CR>")
 -- Close all buffers
 M.map("n", "<leader>qa", ":w | %bd | e#<CR>")
--- Save current session and close neovim
+-- Save current session(saved as current_working_directory.vim name) and close neovim
 M.map("n", "<leader>qq", make_session)
--- Open last saved session of this project
+-- Open last saved session of current_working_directory
 M.map("n", "<leader>ls", open_session)
 -- Delete a line/selected block into _register
 M.map("n", "<A-w>", '"_dd')
