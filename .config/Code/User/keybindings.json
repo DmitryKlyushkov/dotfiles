@@ -758,16 +758,8 @@
     "command": "-workbench.files.action.compareWithClipboard"
   },
   {
-    "key": "shift+h",
-    "command": "workbench.action.moveEditorLeftInGroup"
-  },
-  {
     "key": "ctrl+shift+pageup",
     "command": "-workbench.action.moveEditorLeftInGroup"
-  },
-  {
-    "key": "shift+l",
-    "command": "workbench.action.moveEditorRightInGroup"
   },
   {
     "key": "ctrl+shift+pagedown",

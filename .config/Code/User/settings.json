@@ -242,6 +242,15 @@
     {
       "before": ["d", "q", "("],
       "after": ["d", "i", "(", "h", "P", "l", "2", "x"]
+    },
+    // Move tab left/right
+    {
+      "before": ["<S-h>"],
+      "commands": ["workbench.action.moveEditorLeftInGroup"]
+    },
+    {
+      "before": ["<S-l>"],
+      "commands": ["workbench.action.moveEditorRightInGroup"]
     }
   ],
   // Vim insert mode keybindings
