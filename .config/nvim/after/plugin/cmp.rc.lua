@@ -24,7 +24,8 @@ local function formatForTailwindCSS(entry, vim_item)
 end
 
 luasnip.filetype_extend("typescript", { "typescript" })
-require("luasnip.loaders.from_vscode").load({ paths = "~/.config/snippets" })
+local snippets_path = vim.fs.joinpath(vim.fn.stdpath("config"), "after", "snippets")
+require("luasnip.loaders.from_vscode").load({ paths = snippets_path })
 
 cmp.setup({
 	mapping = cmp.mapping.preset.insert({
