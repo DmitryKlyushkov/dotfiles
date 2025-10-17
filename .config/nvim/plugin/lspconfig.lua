@@ -121,6 +121,33 @@ vim.lsp.config("lua_ls", {
 	},
 })
 
+-- ts_ls configs
+vim.lsp.config("ts_ls", {
+	on_attach = function(_, _)
+		local function goto_source_definiton()
+			local params = vim.lsp.util.make_position_params(0, "utf-16")
+			vim.lsp.buf_request(0, "workspace/executeCommand", {
+				command = "_typescript.goToSourceDefinition",
+				arguments = { vim.uri_from_bufnr(0), params.position },
+			}, function(err, result, _, _)
+				if err then
+					vim.notify(
+						"Error executing _typescript.goToSourceDefinition: " .. err.message,
+						vim.log.levels.ERROR
+					)
+					return
+				end
+				if result and result[1] then
+					vim.lsp.util.show_document(result[1], "utf-16", { focus = true })
+				else
+					vim.notify("No source definition found", vim.log.levels.INFO)
+				end
+			end)
+		end
+		vim.keymap.set("n", "gs", goto_source_definiton)
+	end,
+})
+
 -- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 -- 	underline = true,
 -- 	update_in_insert = false,
