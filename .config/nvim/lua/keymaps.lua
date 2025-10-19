@@ -30,6 +30,18 @@ local function open_session()
 	end
 end
 
+-- Function to trigger Telescope live_grep with the word under cursor
+local function telescope_grep_word()
+	-- Get the word
+	local text = vim.fn.expand("<cword>")
+	if text ~= "" then
+		-- Open live_grep with the word in normal mode
+		require("telescope.builtin").live_grep({ default_text = text, initial_mode = "normal" })
+	else
+		print("No text selected")
+	end
+end
+
 local M = require("utils")
 -- Leader key
 vim.g.mapleader = " "
@@ -107,3 +119,4 @@ M.map("n", "<leader><esc>", ":noh<return><esc>")
 M.map("n", "J", "Jx")
 -- Open Color Picker Window
 M.map("n", "<Leader>cp", "<cmd>lua require('oklch-color-picker').pick_under_cursor({ fallback_open = {} })<cr>")
+M.map("n", "<C-f>", telescope_grep_word)
