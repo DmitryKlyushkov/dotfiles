@@ -63,7 +63,7 @@ packer.startup(function(use)
 			"JoosepAlviste/nvim-ts-context-commentstring", -- Treesitter Plugin For Setting The Commentstring Based On The Cursor Location In A File
 		},
 	})
-	use("norcalli/nvim-colorizer.lua") -- Color Highlighter
+	use("eero-lehtinen/oklch-color-picker.nvim") -- Color Picker/Highlighter
 	use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" }) -- Bufferline
 	use("fedepujol/move.nvim") -- Moving Lines Up and Down
 	use("jake-stewart/multicursor.nvim") -- Multiple Cursors
@@ -81,8 +81,6 @@ packer.startup(function(use)
 		commit = "21909e3eb03bc738cce497f45602bf157b396672", -- https://github.com/3rd/image.nvim/issues/292
 		dependencies = { "luarocks.nvim" },
 	})
-	use("nvchad/volt") -- Creating Reactive UI For Color Picker
-	use("nvchad/minty") -- Color Picker
 	use({
 		"mikesmithgh/kitty-scrollback.nvim", -- Kitty Scrollback Buffer With Neovim
 		disable = false,

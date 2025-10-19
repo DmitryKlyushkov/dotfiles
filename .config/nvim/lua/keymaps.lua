@@ -19,7 +19,7 @@ local function open_session()
 	local current_dir = vim.fn.getcwd()
 	local folder_name = current_dir:match("([^\\/]*)$")
 	-- Attempt to source the session file
-	local success, message = pcall(function()
+	local success, _ = pcall(function()
 		vim.cmd(":source " .. session_file_path .. folder_name .. ".vim")
 	end)
 	-- Check if sourcing was successful
@@ -106,6 +106,4 @@ M.map("n", "<leader><esc>", ":noh<return><esc>")
 -- Join below line and delete a space char
 M.map("n", "J", "Jx")
 -- Open Color Picker Window
-M.map("n", "<Leader>cp", '<cmd>:lua require("minty.huefy").open( { border = true } )<cr>')
--- Open Color Shades Window
-M.map("n", "<Leader>cs", '<cmd>:lua require("minty.shades").open( { border = true } )<cr>')
+M.map("n", "<Leader>cp", "<cmd>lua require('oklch-color-picker').pick_under_cursor({ fallback_open = {} })<cr>")
