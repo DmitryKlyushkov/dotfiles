@@ -70,18 +70,6 @@ packer.startup(function(use)
 	use("karb94/neoscroll.nvim") -- Smooth Scroll
 	use("sindrets/diffview.nvim") -- Diffview For Git
 	use({
-		"vhyrro/luarocks.nvim", -- Neovim Support For Luarocks
-		priority = 1001, -- this plugin needs to run before anything else
-		opts = {
-			rocks = { "magick" },
-		},
-	})
-	use({
-		"3rd/image.nvim", -- Images Support In Neovim
-		commit = "21909e3eb03bc738cce497f45602bf157b396672", -- https://github.com/3rd/image.nvim/issues/292
-		dependencies = { "luarocks.nvim" },
-	})
-	use({
 		"mikesmithgh/kitty-scrollback.nvim", -- Kitty Scrollback Buffer With Neovim
 		disable = false,
 		opt = true,
@@ -93,5 +81,17 @@ packer.startup(function(use)
 			require("kitty-scrollback").setup()
 		end,
 	})
+	-- use({
+	-- 	"vhyrro/luarocks.nvim", -- Neovim Support For Luarocks
+	-- 	priority = 1001, -- this plugin needs to run before anything else
+	-- 	opts = {
+	-- 		rocks = { "magick" },
+	-- 	},
+	-- })
+	-- use({
+	-- 	"3rd/image.nvim", -- Images Support In Neovim
+	-- 	commit = "21909e3eb03bc738cce497f45602bf157b396672", -- https://github.com/3rd/image.nvim/issues/292
+	-- 	dependencies = { "luarocks.nvim" },
+	-- })
 	-- use "github/copilot.vim"       -- GitHub Copilot
 end)
