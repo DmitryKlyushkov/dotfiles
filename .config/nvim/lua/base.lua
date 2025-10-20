@@ -46,3 +46,20 @@ vim.opt.foldenable = false -- Disable folding at startup
 vim.opt.foldlevelstart = 99
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
+-- Highlighting
+vim.opt.cursorline = true -- Highlights the current line
+vim.opt.termguicolors = true -- Allows true color syntax highlighting and other color-related features
+vim.opt.winblend = 0 -- Transparency for floating and popup windows
+vim.opt.winblend = 0 -- Transparency for floating and popup windows
+vim.opt.wildoptions = "pum" -- Enables partial and menu-based completion
+vim.opt.pumblend = 5 -- Transparency level of the pum menu
+vim.opt.background = "dark" -- Dark color scheme
+
+-- Highlights yanked text for 100ms using the "Visual" highlight group
+vim.cmd([[
+  augroup highlight_yank
+  autocmd!
+  au TextYankPost * silent! lua vim.hl.on_yank({higroup="Visual", timeout=100})
+  augroup END
+]])

@@ -1,32 +1,32 @@
 -- Save current session and leave neovim
 local function make_session()
-	-- Session file path
-	local session_file_path = "~/.config/nvim/sessions/"
-	-- Name of the project
+	-- Sessions folder path
+	local sessions_path = vim.fs.joinpath(vim.fn.stdpath("config"), "sessions/")
+	-- Name of the root folder
 	local current_dir = vim.fn.getcwd()
 	local folder_name = current_dir:match("([^\\/]*)$")
 	-- Save the current session as a project name
-	vim.cmd("mksession! " .. session_file_path .. folder_name .. ".vim")
+	vim.cmd("mksession! " .. sessions_path .. folder_name .. ".vim")
 	-- Save buffers and close neovim
 	vim.cmd(":wqa<CR>")
 end
 
 -- Open last saved session of this project
 local function open_session()
-	-- Session file path
-	local session_file_path = "~/.config/nvim/sessions/"
-	-- Name of the project
+	-- Sessions folder path
+	local sessions_path = vim.fs.joinpath(vim.fn.stdpath("config"), "sessions/")
+	-- Name of the root folder
 	local current_dir = vim.fn.getcwd()
 	local folder_name = current_dir:match("([^\\/]*)$")
 	-- Attempt to source the session file
 	local success, _ = pcall(function()
-		vim.cmd(":source " .. session_file_path .. folder_name .. ".vim")
+		vim.cmd(":source " .. sessions_path .. folder_name .. ".vim")
 	end)
 	-- Check if sourcing was successful
 	if not success then
 		-- If there was an error, close telescope floating window and open session
 		vim.cmd(":q!")
-		vim.cmd(":source " .. session_file_path .. folder_name .. ".vim")
+		vim.cmd(":source " .. sessions_path .. folder_name .. ".vim")
 	end
 end
 
@@ -104,7 +104,7 @@ M.map("v", "<C-x>", '"+d')
 M.map("n", "<leader>a", "gg<S-v>G")
 -- Create a new tab
 M.map("n", "<Leader><Tab>", "<cmd>:tabnew<cr>")
-M.map("n", "<Leader>t", "<cmd>:tabclose<cr>")
+M.map("n", "<Leader>wq", "<cmd>:tabclose<cr>")
 -- Horisontal/Vertical Split
 M.map("n", "ss", ":split<Return><C-w>w")
 M.map("n", "sv", ":vsplit<Return><C-w>w")
