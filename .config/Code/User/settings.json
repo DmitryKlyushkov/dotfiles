@@ -36,16 +36,6 @@
       "before": ["leader", "q", "q"],
       "commands": ["workbench.action.quit"]
     },
-    // Open color picker
-    {
-      "before": ["leader", "c", "p"],
-      "commands": ["extension.cm_open_picker"]
-    },
-    // Open color manager(palette)
-    {
-      "before": ["leader", "c", "m"],
-      "commands": ["extension.cm_open_palette"]
-    },
     // Move cursor to the beginning/end of line
     {
       "before": ["leader", "1"],
