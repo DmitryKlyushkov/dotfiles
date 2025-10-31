@@ -163,6 +163,7 @@ for type, icon in pairs(signs) do
 end
 
 vim.diagnostic.config({
+	severity_sort = true, -- Sort by severity: errors first, then warnings, etc.
 	virtual_text = {
 		prefix = "●",
 	},
