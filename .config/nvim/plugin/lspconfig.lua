@@ -96,6 +96,10 @@ vim.lsp.enable({
 	-- Language Server for the Prisma JavaScript and TypeScript ORM
 	-- default vim.lsp.config(): https://github.com/neovim/nvim-lspconfig/blob/master/lsp/prismals.lua
 	"prismals",
+	-- Language server for Rust
+	-- https://rust-analyzer.github.io/book/configuration.html
+	-- default vim.lsp.config(): https://github.com/neovim/nvim-lspconfig/blob/master/lsp/rust_analyzer.lua
+	"rust_analyzer",
 })
 
 -- lua_ls configs

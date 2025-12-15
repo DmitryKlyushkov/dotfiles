@@ -63,3 +63,6 @@ vim.cmd([[
   au TextYankPost * silent! lua vim.hl.on_yank({higroup="Visual", timeout=100})
   augroup END
 ]])
+
+-- Auto-formatting with rustfmt on file save
+vim.g.rustfmt_autosave = 1
