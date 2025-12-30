@@ -133,6 +133,11 @@
       "before": ["leader", "4"],
       "commands": ["editor.action.marker.prev"]
     },
+    // Show full error on this line(same as Next error)
+    {
+      "before": ["g", "l"],
+      "commands": ["editor.action.marker.next"]
+    },
     // Go to definition
     {
       "before": ["g", "d"],
