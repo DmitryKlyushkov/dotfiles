@@ -55,6 +55,9 @@ protocol.CompletionItemKind = {
 -- Set up completion using nvim_cmp with LSP source
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+-- Enable Inlay hints - types and function signatures inline as virtual text
+vim.lsp.inlay_hint.enable(true)
+
 vim.lsp.enable({
 	-- CSS variables autocompletion and go-to-definition
 	-- https://github.com/vunguyentuan/vscode-css-variables/
