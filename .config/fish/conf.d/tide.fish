@@ -22,8 +22,11 @@ set -g tide_git_color_staged 21222c
 set -g tide_git_color_stash 21222c
 set -g tide_git_color_untracked 21222c
 set -g tide_git_color_upstream 21222c
-
-set -g tide_character_icon "╰─>"
+# Character Settings
+set -g tide_character_icon "╰─➤"
+set -U tide_character_vi_icon_insert  "╰─➤"
+set -U tide_character_vi_icon_default "╰─➤"
+set -U tide_character_vi_icon_replace "╰─➤"
 set -g tide_character_color 78f09a
 
 # Right Prompt
