@@ -19,7 +19,7 @@ local function formatForTailwindCSS(entry, vim_item)
 			return vim_item
 		end
 	end
-	vim_item.kind = lspkind.symbolic(vim_item.kind) and lspkind.symbolic(vim_item.kind) or vim_item.kind
+	-- vim_item.kind = lspkind.symbolic(vim_item.kind) and lspkind.symbolic(vim_item.kind) or vim_item.kind
 	return vim_item
 end
 
