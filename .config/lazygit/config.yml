@@ -42,7 +42,7 @@ keybinding:
 
 # Custom functions
 customCommands:
-  - key: "<F1>"
+  - key: "<f1>"
     context: "global"
     prompts:
       - type: "menu"

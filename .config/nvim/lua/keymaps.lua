@@ -104,6 +104,7 @@ M.map("v", "<C-x>", '"+d')
 M.map("n", "<leader>a", "gg<S-v>G")
 -- Create a new tab
 M.map("n", "<Leader><Tab>", "<cmd>:tabnew<cr>")
+-- Close current tab
 M.map("n", "<Leader>wq", "<cmd>:tabclose<cr>")
 -- Horisontal/Vertical Split
 M.map("n", "ss", ":split<Return><C-w>w")
